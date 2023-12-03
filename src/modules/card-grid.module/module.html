@@ -1,0 +1,102 @@
+<!-- module html  -->
+<div class="card-grid">
+<div class="flex justify-center sm:justify-start flex-wrap -mx-3 ">
+{% for item in module.cards %}
+  {% set href = item.cta.link.url.href %}
+	{% if item.cta.link.url.type is equalto "EMAIL_ADDRESS" %}
+		{% set href = "mailto:" + href %}
+	{% endif %}
+
+<div class="lg:w-1/3 sm:w-1/2 w-11/12 p-3 {% if loop.index > 6 %} hidden {% endif %} card-column">
+  <a class="block border rounded-[20px] p-3 h-full" href="{{ href }}" {% if item.cta.link.open_in_new_tab %}target="_blank"{% endif %}
+  {% if item.cta.link.rel %}rel="{{ item.cta.link.rel }}"{% endif %}>
+  {% if item.thumbnail.src %}
+    {% set sizeAttrs = 'width="{{ item.thumbnail.width }}" height="{{ item.thumbnail.height }}"' %}
+    
+    {% if item.thumbnail.size_type == 'auto' %}
+    
+      {% set sizeAttrs = 'width="{{ item.thumbnail.width }}" height="{{ item.thumbnail.height }}" style="max-width: 100%; height: auto;"' %}
+    
+    {% elif item.thumbnail.size_type == 'auto_custom_max' %}
+    
+      {% set sizeAttrs = 'width="{{ item.thumbnail.max_width }}" height="{{ item.thumbnail.max_height }}" style="max-width: 100%; height: auto;"' %}
+    {% endif %}
+   
+    {% set loadingAttr = item.thumbnail.loading != 'disabled' ? 'loading="{{ item.thumbnail.loading }}"' : '' %}
+
+      <div class="{% if module.card_type == 'event' %} h-[240px] {% else %} h-[160px] {% endif %} mb-3">
+        <img class="w-full h-full object-cover" src="{{ item.thumbnail.src }}" alt="{{ item.thumbnail.alt }}" {{ loadingAttr }}>
+      </div>
+    {% endif %} 
+    {% if item.date %}
+    <p class="text-black text-opacity-50 text-[14px] mb-2">
+      {{ item.date }}&nbsp;&nbsp;&nbsp;&nbsp;{% if item.card_label %}<span class="uppercase font-bold text-v-purple">{{ item.card_label }}</span>{% endif %}
+    </p>
+    {% endif %}
+    <p class="text-black font-bold text-[18px] mb-2">{{ item.title }}</p>
+    {% if item.excerpt %}
+    <p class="text-black text-opacity-70 text-[14px]">
+      {{ item.excerpt }}
+    </p>
+    {% endif %}
+    <div class="flex items-center">
+      <p class="font-bold text-[16px] text-v-purple m-0">
+        {{ item.cta.text }}
+      </p>
+      <svg class="text-v-purple" stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+    </div>
+ 
+	
+	</a>
+</div>
+{% endfor %}
+</div>
+
+{% if module.cards|length > 6 %}
+<div class="text-center" >
+  <div class="button-wrapper relative z-10">
+    <div class="group inline-block ">
+      <div class="button-outer  p-1 rounded-[40px] inline-block group-hover:bg-opacity-10 transition-colors duration-200 ease-in-out group-hover:bg-v-purple">
+        <div class="button-inner p-1 rounded-[40px] inline-block group-hover:bg-opacity-20 ease-in-out duration-100 group-hover:bg-v-purple">
+          <a class="load-more-button" style="background-color:#ffffff;color: #553eb0;font-weight: 700;" class="button group-hover:text-v-purple load-more-button bg-white" href="#"
+          >
+            Load all
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+</div>
+
+{% require_js position="footer" %}
+<script>
+
+  const cardGrids = Array.prototype.slice.call( document.querySelectorAll('.card-grid') );
+
+  cardGrids.forEach((grid, i) => {
+    const btn = grid.querySelector('.load-more-button');
+    const cardColumns = Array.prototype.slice.call( grid.querySelectorAll('.card-column') );
+
+    if(btn) {
+
+    btn.addEventListener("click", function(e) {
+
+      e.preventDefault();
+      this.parentElement.parentElement.parentElement.classList.add("hidden");
+
+      cardColumns.forEach((column, i) => {
+        column.classList.remove("hidden");
+      });
+      
+    });
+
+  }
+
+
+  });
+
+</script>
+{% end_require_js %}

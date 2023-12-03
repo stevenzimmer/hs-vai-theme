@@ -1,0 +1,51 @@
+/* .hs {
+  &-button {
+    @apply px-4 py-4 rounded-[8px] text-[16px] font-bold border-2 border-v-purple block  min-w-[140px] text-center transition-all duration-200;
+
+    &:hover {
+      @apply border-v-blue;
+    }
+  }
+} */
+
+/* .button-wrapper {
+  @apply bg-v-purple bg-opacity-80 p-1 rounded-[40px] inline-block;
+} */
+
+.btn {
+  @apply inline-block border-[2px] min-w-[140px] md:min-w-[200px] py-2 rounded-[40px] text-center text-[16px] font-bold;
+
+  &-small {
+    @apply min-w-[99px] py-1 text-[12px];
+  }
+
+  &:hover {
+    @apply font-bold;
+  }
+
+  &-white {
+    @apply border-white bg-white;
+  }
+
+  &-purple {
+    @apply border-v-purple bg-v-purple text-white;
+   
+  }
+  &-ghost {
+    @apply bg-transparent;
+ 
+
+    &-white {
+      @apply border-white text-white;
+
+      &:hover {
+        @apply text-white;
+      }
+    }
+
+    &-purple {
+      @apply border-v-purple text-v-purple;
+     
+    }
+  }
+}

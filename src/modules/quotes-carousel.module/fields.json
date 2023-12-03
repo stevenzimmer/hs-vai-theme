@@ -1,0 +1,74 @@
+[
+  {
+   "type": "group",
+   "id": "40b5e8c3-abcd-1dd0-511d-d7968a2ff0f0",
+   "label": "Quotes",
+   "children": [
+    {
+     "type": "text",
+     "id": "b23f45ad-e0a2-f6cf-1d87-d21385d759da",
+     "validation_regex": "",
+     "label": "Name",
+     "name": "quote_name",
+     "default": "Jenn Flynn"
+    },
+    {
+     "type": "text",
+     "id": "71a67232-0491-c0b9-dbf4-f9949911c8cf",
+     "validation_regex": "",
+     "label": "Title",
+     "name": "title",
+     "default": "Principal Data Scientist"
+    },
+    {
+     "type": "text",
+     "id": "99926375-4d11-b3fc-ef25-2c7c5f2f9f9d",
+     "validation_regex": "",
+     "label": "Quote",
+     "name": "quote",
+     "default": "“Before Verta, classifying our entire data universe would take days. Verta helped us redo our entire universe in 20 minutes.”"
+    },
+    {
+     "type": "image",
+     "id": "7c6a4279-e40f-9d1d-5c13-20f07b0a10d7",
+     "default": {
+      "size_type": "auto",
+      "src": "https://5747173.fs1.hubspotusercontent-na1.net/hubfs/5747173/jenn-flynn-headshot.png",
+      "alt": "jenn-flynn-headshot",
+      "loading": "lazy",
+      "width": 430,
+      "height": 430,
+      "max_width": 430,
+      "max_height": 430
+     },
+     "resizable": true,
+     "responsive": true,
+     "show_loading": false,
+     "label": "Headshot",
+     "name": "headshot"
+    },
+    {
+     "type": "image",
+     "id": "92c8885f-22a9-94a6-dd80-f41e754d77f3",
+     "default": {
+      "size_type": "auto",
+      "src": "https://5747173.fs1.hubspotusercontent-na1.net/hubfs/5747173/leadcrunch-logo-grey.png",
+      "alt": "leadcrunch-logo-grey",
+      "loading": "lazy",
+      "width": 320,
+      "height": 131,
+      "max_width": 320,
+      "max_height": 131
+     },
+     "resizable": true,
+     "responsive": true,
+     "show_loading": false,
+     "label": "Logo",
+     "name": "logo"
+    }
+   ],
+   "name": "quotes",
+   "default": [],
+   "occurrence": {}
+  }
+ ]

@@ -1,0 +1,94 @@
+<!--
+    templateType: page
+    label: Landing Page template
+    isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  <main class="relative">
+    <div class="bg-v-offwhite  h-[400px] absolute w-full inset-0"></div>
+    <div class="relative  landing-page-body">
+        {% dnd_area "dnd_area" 
+        label="Drag and Drop Body"
+        %}
+
+        {% dnd_section %}
+          {% dnd_column
+            offset=0,
+            width=6
+          %}
+            {% dnd_row %}
+              {% dnd_module
+                path="@hubspot/rich_text",
+                offset=0,
+                width=12
+              %}
+                {% module_attribute "html" %}
+                  <p style="font-weight: bold;"><span style="color: #553eb0;">Verta Insights Report</span></p>
+                  <h1 style="font-size: 48px; line-height: 1.25;">The State of Machine Learning Operations 2022</h1>
+                {% end_module_attribute %}
+              {% end_dnd_module %}
+            {% end_dnd_row %}
+            {% dnd_row %}
+              {% dnd_module
+                path="@hubspot/linked_image",
+                offset=0,
+                width=12,
+                horizontal_alignment="CENTER",
+                img={
+                  "alt" : "LP-StateofMLops",
+                  "height" : 630,
+                  "loading" : "lazy",
+                  "max_height" : 630,
+                  "max_width" : 786,
+                  "size_type" : "auto",
+                  "src" : "https://5747173.fs1.hubspotusercontent-na1.net/hubfs/5747173/LP-StateofMLops.png",
+                  "width" : 786
+                }
+              %}
+              {% end_dnd_module %}
+            {% end_dnd_row %}
+            {% dnd_row %}
+              {% dnd_module
+                path="@hubspot/rich_text",
+                offset=0,
+                width=12
+              %}
+                {% module_attribute "html" %}
+                  <p>The State of MLOps study from Verta Insights explores trends, best practices and opportunities shaping the industry — from model experimentation and deployment through real-time safe operations. Importantly, the study revealed differences in how successful organizations approach ML versus laggards.</p>
+                  <p><span style="font-weight: bold;">Key topics include:</span></p>
+                  <ul>
+                  <li><span style="font-weight: bold;">Real-time explosion</span>: Real-time use cases set for rapid growth</li>
+                  <li><span style="font-weight: bold;">Investment priorities</span>: How companies are building their Operational AI tech stack</li>
+                  <li><span style="font-weight: bold;">Leaders vs Laggards</span>: How successful companies are outperforming peers</li>
+                  </ul>
+                  <p>Building and training complex models is no longer the competitive differentiator —now, companies need to effectively operationalize ML to realize value from their investments.</p>
+                  <p>The paradigm shift evidenced in this study is the movement away from a focus on data science and toward a mindset where we treat models like software, and adopt an Operational AI mindset.</p>
+                {% end_module_attribute %}
+              {% end_dnd_module %}
+            {% end_dnd_row %}
+          {% end_dnd_column %}
+          {% dnd_column
+            offset=6,
+            width=6
+          %}
+            {% dnd_row %}
+              {% dnd_module
+                path="@hubspot/form",
+                offset=0,
+                width=12,
+                form={
+                  "form_id" : "af80d709-05b5-43b4-9dbf-84e81054c515",
+                  "message" : "Thanks for submitting the form.",
+                  "response_type" : "inline"
+                }
+              %}
+              {% end_dnd_module %}
+            {% end_dnd_row %}
+          {% end_dnd_column %}
+        {% end_dnd_section %}
+        {% end_dnd_area %}
+    </div>
+  </main>
+{% endblock body %}

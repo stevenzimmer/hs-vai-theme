@@ -1,0 +1,45 @@
+[
+  {
+   "type": "text",
+   "id": "9b36f4c8-e853-4c17-abeb-a2215bc1774e",
+   "validation_regex": "",
+   "label": "Quote",
+   "name": "quote",
+   "default": "“Having Verta is like having two additional data engineers on our team that can help support the data science team.”"
+  },
+  {
+   "type": "image",
+   "id": "49c65144-a023-c3e6-5574-b394dddc5831",
+   "default": {
+    "size_type": "auto",
+    "src": "https://5747173.fs1.hubspotusercontent-na1.net/hubfs/5747173/alex-quintero-headshot.png",
+    "alt": "alex-quintero-headshot",
+    "loading": "lazy",
+    "width": 430,
+    "height": 430,
+    "max_width": 430,
+    "max_height": 430
+   },
+   "resizable": true,
+   "responsive": true,
+   "show_loading": false,
+   "label": "Headshot",
+   "name": "headshot"
+  },
+  {
+   "type": "text",
+   "id": "2cc3ed75-401e-9753-4743-fc58968119de",
+   "validation_regex": "",
+   "label": "Name",
+   "name": "quote_name",
+   "default": "Alex Quintero"
+  },
+  {
+   "type": "text",
+   "id": "aa46b65e-ff18-9bbd-c057-14d48b36f97c",
+   "validation_regex": "",
+   "label": "Title",
+   "name": "title",
+   "default": "Director of Data Science, LeadCrunch"
+  }
+ ]

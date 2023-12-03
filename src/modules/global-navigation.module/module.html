@@ -1,0 +1,381 @@
+<!-- module html  -->
+{% set recent_posts = blog_recent_posts('default', 2) %}
+{% set recent_news = hubdb_table_rows(7469068) %}
+
+{% set nav_items = [
+  {
+    "title": "AI Hub",
+    "url": "https://www.verta.ai/ai-hub?hs_preview=BwmTXsrD-144438452623"
+  },
+  {
+    "title": "Solutions",
+    "dropdown": {
+      "rows": [
+        {
+          "icon": "https://5747173.fs1.hubspotusercontent-na1.net/hubfs/5747173/icon-nav-enterprise-model-inventory.png",
+          "title": "Enterprise Model Inventory",
+          "description": "Establish a centralized inventory of all your model assets",
+          "url": "https://www.verta.ai/solutions/enterprise-model-inventory?hs_preview=FQpBYhWE-135685590079"
+        },
+        {
+          "icon":"https://5747173.fs1.hubspotusercontent-na1.net/hubfs/5747173/icon-nav-ai-portfolio-mgmt.png",
+          "title": "AI Portfolio Management",
+          "description": "Take control of your AI initiatives with AI Portfolio Management",
+          "url": "https://www.verta.ai/solutions/ai-portfolio-management?hs_preview=NMdNtJan-139178409398"
+        },
+        {
+        "icon":"https://5747173.fs1.hubspotusercontent-na1.net/hubfs/5747173/icon-nav-ai-governance.png",
+          "title": "AI Governance",
+          "description": "Ensure robust end-to-end AI governance across your AI portfolio",
+          "url": "https://www.verta.ai/solutions/governance-0?hs_preview=lbLccURo-139178409528"
+        },
+        {
+        "icon":"https://5747173.fs1.hubspotusercontent-na1.net/hubfs/5747173/icon-nav-ai-regulations.png",
+          "title": "AI Regulations",
+          "description": "Ensure ongoing compliance with AI Regulations",
+          "url": "https://www.verta.ai/solutions/ai-regulations-0?hs_preview=NbCqUhwP-139178409593"
+        },
+        {
+          "icon":"https://5747173.fs1.hubspotusercontent-na1.net/hubfs/5747173/icon-nav-responsible-ai.png",
+            "title": "Responsible AI",
+            "description": "Mitigate AI risks ensuring ethical, transparent and responsible AI",
+            "url": "https://www.verta.ai/solutions/responsible-ai-0?hs_preview=BbVEebrv-139178409642"
+          },
+        {
+        "icon":"https://5747173.fs1.hubspotusercontent-na1.net/hubfs/5747173/icon-nav-model-lifecycle-mgmt.png",
+          "title": "Model Lifecycle Management",
+          "description": "Adopt Model Lifecycle Management to do ML at Scale",
+          "url": "https://www.verta.ai/solutions/model-lifecycle-management?hs_preview=qdKSUWeU-139178409759"
+        },
+        {
+        "icon":"https://5747173.fs1.hubspotusercontent-na1.net/hubfs/5747173/icon-nav-model-fleet-mgmt.png",
+          "title": "Model Fleet Management",
+          "description": "Take control of your models deployed at the edge",
+          "url": "https://www.verta.ai/solutions/model-fleet-management?hs_preview=UjKtlEue-139178409817"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Case Studies",
+    "dropdown": {
+      "rows": [
+        {
+  
+          "title": "LeadCrunch",
+          "description": "Understand how LeadCrunch scales data science with Verta",
+          "url": "https://www.verta.ai/customers/leadcrunch-0?hs_preview=MoNMFXfs-136838861945"
+        },
+        {
+
+          "title": "Scribd",
+          "description": "Check out how Scribd accelerates model delivery with Verta MLOps",
+          "url": "https://www.verta.ai/customer/scribd-0?hs_preview=GcZLWctw-136986914696"
+        },
+        {
+
+          "title": "Industry Leader",
+          "description": "See how a leading business collaboration platform deploys models faster with Verta MLOps",
+          "url": "https://www.verta.ai/customers/industry-leader-0?hs_preview=SfMpRBrf-136988678279"
+        }
+      ]
+    }
+  },
+  {
+    "title": "Company",
+    "dropdown": {
+      "column_left": [
+        {
+          "title": "About Us",
+          "description": "Learn more about Verta",
+          "url": "https://www-verta-ai.sandbox.hs-sites.com/about-us?hs_preview=KzDFoUiV-144782607372&"
+        },
+        {
+          "title": "Careers",
+          "description": "View job openings",
+          "url": "https://wellfound.com/company/verta-ai-1/jobs"
+        },
+        {
+          "title": "Contact Us",
+          "description": "Get in touch with Verta",
+          "url": "https://www.verta.ai/news-room-0?hs_preview=ZmOJZqXV-137732598882"
+        }
+      ],
+      "column_right": {
+        "title": "Newsroom",
+        "description": "Read the latest press coverage, company announcements, and more. &nbsp;",
+        "url": "https://www.verta.ai/news-room-0?hs_preview=ZmOJZqXV-137732598882",
+        "cta_text": true
+      }
+
+    }
+  },
+  {
+    "title": "Resources",
+    "dropdown": {
+      "column_left": [
+        {
+          "title": "Research",
+          "description": "Learn more about Operational AI",
+          "url": "https://www.verta.ai/learn-0?hs_preview=jaVtJkpc-138614638868"
+        },
+        {
+          "title": "Events",
+          "description": "Check out upcoming & past events",
+          "url": "https://www.verta.ai/events-0?hs_preview=LCzGEqDY-138035321011"
+        },
+        {
+          "title": "Docs",
+          "description": "Access Verta’s documentation",
+          "url": "https://docs.verta.ai/verta/"
+        }
+      ],
+      "column_right": {
+        "title": "Blog",
+        "description": "Explore Verta's latest content. &nbsp;",
+        "url": "https://www.verta.ai/blog-redesign",
+        "cta_text": true
+      }
+    }
+  }
+] %}
+
+
+{% macro dropdown_item(col) %}
+
+{% set href = col.url.url.href %}
+{% if col.url.url.type is equalto "EMAIL_ADDRESS" %}
+  {% set href = "mailto:" + href %}
+{% endif %}
+{% set loadingAttr = col.icon.loading != 'disabled' ? 'loading="{{ col.icon.loading }}"' : '' %} 
+<a href="{{ href }}"
+{% if col.url.open_in_new_tab %}target="_blank"{% endif %}
+{% if col.url.rel %}rel="{{ col.url.rel }}"{% endif %} class="relative flex p-3 rounded-md hover:bg-v-offwhite group/col">
+  {% if col.icon.src %}
+  <div class="w-[40px]">
+    <img class="w-auto h-[24px]" src="{{ col.icon.src }}" alt="{{ col.title }} icon" {{ loadingAttr }} />
+  </div>
+  {% endif %}
+
+  <div class="w-full">
+    <div>
+      <p class="text-black text-[14px] mb-1 font-bold">
+        {{col.title}}
+      </p>
+    </div>
+    <div class="">
+      <p class="text-black/60 text-[14px] m-0">{{col.description}}</p>
+      {% if col.has_cta %}
+      <p class="text-[12px] text-v-purple font-bold mt-3 mb-0">See all <span class="group-hover/col:translate-x-0.5 transition-transform duration-200 inline-block">→</span></p>
+      {% endif %}
+    </div>
+  </div>
+    
+</a>
+{% endmacro %}
+
+{% macro feature_card(name, absolute_url, featured_image) %}
+
+<a target="_blank" href="{{absolute_url}}" class="flex w-full mb-3 last:mb-0 hover:no-underline group/blog rounded overflow-hidden ">
+  {% if featured_image %}
+  <div class="w-[200px]">
+    <img class="rounded-l w-full h-full object-cover" src="{{featured_image}}" alt="{{name}}">
+    
+  </div>
+  {% endif %}
+  <div class="w-full p-3 bg-v-offwhite">
+    <div class="w-full lg:w-4/5">
+    <p class="text-[14px] font-bold text-black group-hover/blog:underline mb-3">{{name}}</p>
+    
+    <p class="text-[12px] text-v-purple font-bold m-0">Read more <span class="group-hover/blog:translate-x-0.5 transition-transform duration-200 inline-block">→</span></p></div>
+  </div>
+  
+</a>
+
+{% endmacro %}
+
+<nav class="bg-v-offwhite nav-main pt-2 lg:py-0 relative">
+  <div class="container px-6">
+    <div class="flex items-center">
+      <div class="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/12">
+        <div class="w-full py-3 lg:py-0">
+     
+          <a href="https://www.verta.ai/">
+            <svg width="72" height="24" viewBox="0 0 72 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_707_1320)">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M26.8075 5.87355C29.0718 5.87355 30.8381 6.57179 32.1064 7.96826C33.3748 9.36473 34.0088 11.4492 34.0086 14.2217C34.0086 14.4299 34.004 14.6646 33.9926 14.9254C33.9813 15.1863 33.9674 15.4196 33.9458 15.6292H23.0965C23.2013 16.9419 23.6678 17.9579 24.4961 18.6772C25.3244 19.3965 26.5246 19.7561 28.0968 19.7561C29.019 19.7561 29.8629 19.6726 30.6285 19.5056C31.3941 19.3385 31.9971 19.162 32.4374 18.9761L32.9417 22.0704C32.662 22.2016 32.3727 22.3115 32.0763 22.399C31.6627 22.5253 31.2426 22.6298 30.8179 22.712C30.3465 22.8049 29.8383 22.8843 29.2928 22.9464C28.7394 23.0092 28.1828 23.0403 27.6258 23.0396C26.1782 23.0396 24.9202 22.826 23.8516 22.399C22.7831 21.9719 21.9029 21.3773 21.211 20.6152C20.5187 19.8547 20.005 18.9586 19.67 17.9268C19.4171 17.1346 19.2601 16.3152 19.2021 15.4859L22.5046 7.21614C22.9621 6.89378 23.4565 6.62684 23.9775 6.42096C24.8771 6.06051 25.8377 5.8747 26.8075 5.87355ZM51.3095 1.34002V6.2812H57.1582V9.43896H51.3095V16.0976C51.3095 17.411 51.519 18.349 51.938 18.9116C52.357 19.4741 53.0699 19.7557 54.0767 19.7561C54.7691 19.7561 55.3821 19.6832 55.9157 19.5373C56.3476 19.4249 56.773 19.2893 57.1901 19.1311L57.819 22.1311C57.3792 22.3193 56.8024 22.5124 56.0888 22.7103C55.3752 22.9081 54.5367 23.0071 53.5734 23.0071C52.399 23.0071 51.4188 22.8507 50.6328 22.538C49.8468 22.2253 49.2232 21.772 48.7619 21.1781C48.3008 20.5824 47.9759 19.863 47.7872 19.0199C47.5985 18.1768 47.5039 17.2127 47.5034 16.1276V1.96543L51.3095 1.34002ZM64.8012 5.87355C66.0586 5.87355 67.1174 6.03002 67.9773 6.34296C68.8373 6.6559 69.5236 7.09343 70.0363 7.65555C70.551 8.21885 70.9175 8.9012 71.1358 9.70261C71.354 10.504 71.4641 11.3847 71.466 12.3447V22.2574C70.8786 22.3824 69.993 22.5336 68.8091 22.711C67.6251 22.8884 66.2892 22.9767 64.8012 22.976C63.8152 22.976 62.9136 22.8819 62.0964 22.6937C61.2792 22.5054 60.5817 22.2032 60.0038 21.787C59.4239 21.3656 58.9592 20.8065 58.6521 20.1606C58.3274 19.4938 58.165 18.6703 58.1648 17.69C58.1648 16.7526 58.3481 15.9606 58.7149 15.314C59.0755 14.674 59.5885 14.132 60.2088 13.7353C60.8378 13.3283 61.5663 13.0366 62.3943 12.8604C63.2471 12.6801 64.1167 12.5907 64.9884 12.5939C65.4299 12.5952 65.8708 12.6213 66.3093 12.6723C66.807 12.7307 67.3007 12.8192 67.7876 12.9373V12.3151C67.7896 11.893 67.7367 11.4725 67.6305 11.0639C67.5303 10.6773 67.3421 10.3189 67.0804 10.0164C66.8184 9.71379 66.4722 9.4792 66.0418 9.31261C65.6115 9.14602 65.072 9.06285 64.4234 9.06308C63.6119 9.05765 62.8013 9.12022 62.0003 9.25014C61.2673 9.37579 60.6701 9.52167 60.2088 9.68779L59.7374 6.6239C60.2191 6.45661 60.9213 6.29002 61.8442 6.12414C62.82 5.95193 63.8095 5.86782 64.8005 5.87284L64.8012 5.87355ZM42.9394 5.93602C43.1912 5.93602 43.4847 5.95155 43.8197 5.98261C44.1548 6.01367 44.4904 6.05555 44.8267 6.10826C45.1615 6.16049 45.4871 6.22296 45.8013 6.29532C46.1156 6.36767 46.3688 6.43649 46.5564 6.49932L45.8967 9.68779C45.5825 9.58367 45.1477 9.47355 44.5919 9.36026C44.0361 9.24696 43.3916 9.18802 42.6582 9.18802C42.2098 9.19068 41.7625 9.23237 41.3214 9.31261C40.8485 9.39637 40.5182 9.46967 40.3304 9.53249V22.6326H36.5261V7.06049C37.2591 6.79061 38.1762 6.5352 39.2774 6.29426C40.3785 6.05332 41.5997 5.9339 42.9408 5.93602H42.9394ZM4.90499 0.964844L6.44571 5.43696C6.9697 6.95767 7.49344 8.45308 8.01695 9.9232C8.54045 11.3933 9.06479 12.8156 9.58995 14.1899C10.1142 15.5647 10.6279 16.8258 11.131 17.9731C11.6127 16.826 12.116 15.5701 12.6409 14.2054C13.1658 12.8407 13.695 11.418 14.2285 9.93732C14.7638 8.45779 15.2933 6.95767 15.8171 5.43696C16.3408 3.91626 16.8437 2.42555 17.3259 0.964844H21.5714C20.2929 4.65426 18.9302 8.3439 17.4834 12.0338C16.0365 15.7237 14.5271 19.2566 12.9552 22.6326H9.14944C7.57797 19.2552 6.06337 15.7219 4.60564 12.0327C3.1479 8.34355 1.79042 4.65426 0.533203 0.964844H4.90499ZM65.5552 15.3161C65.1291 15.3166 64.7036 15.3478 64.2819 15.4093C63.8786 15.4641 63.4861 15.5803 63.1182 15.7538C62.7834 15.9116 62.4962 16.1543 62.2854 16.4576C62.0752 16.7594 61.9701 17.1396 61.9701 17.5979C61.9701 18.4948 62.2539 19.1152 62.8214 19.459C63.3888 19.8027 64.1541 19.9746 65.1172 19.9746C66.2912 19.9746 67.1821 19.912 67.7901 19.7868V15.5974C67.5805 15.535 67.2754 15.4728 66.8778 15.4104C66.4406 15.3445 65.9988 15.313 65.5566 15.3161H65.5552ZM26.837 9.03379C26.2508 9.03379 25.7372 9.14308 25.2962 9.36167C24.8698 9.57026 24.4901 9.86246 24.1801 10.2207C23.8719 10.5816 23.6317 10.9948 23.4707 11.4405C23.3048 11.8953 23.1894 12.3668 23.1263 12.8466H30.2036C30.2065 12.3431 30.1324 11.842 29.9837 11.3607C29.85 10.9165 29.6308 10.5023 29.3382 10.1413C29.0563 9.79831 28.7022 9.52118 28.3007 9.32955C27.8921 9.1312 27.4047 9.03214 26.8384 9.03237L26.837 9.03379Z" fill="#553EB0"/>
+              </g>
+              <defs>
+              <clipPath id="clip0_707_1320">
+              <rect width="72" height="24" fill="white"/>
+              </clipPath>
+              </defs>
+              </svg>
+            </a>
+        </div>
+      </div>
+      
+      <div class="w-1/2 sm:w-2/3 md:w-3/4 lg:w-11/12">
+        <div class="lg:hidden flex justify-end">
+          <div id="mobile-nav-trigger" class="cursor-pointer pr-4">
+            <div id="mobile-nav-close" class="hidden">
+              <svg class="w-[30px]"  stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="#000000" stroke-width="2" d="M3,3 L21,21 M3,21 L21,3"></path></svg>
+            </div>
+
+            <div id="mobile-nav-open">
+              <svg class="w-[30px]" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512"  xmlns="http://www.w3.org/2000/svg"><path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"></path></svg>
+            </div>
+          </div>
+        </div>
+        <div class="w-full hidden lg:flex flex-col lg:flex-row items-center absolute lg:static right-0 bg-white top-[80px] lg:top-[100px] lg:bg-transparent main-nav-menu pb-20 lg:pb-0 overflow-y-scroll lg:overflow-visible h-screen lg:h-full z-20 border-b lg:border-transparent" id="main-nav-menu">
+          <div class="px-6 lg:px-0 w-full lg:w-3/4 mb-6 lg:mb-0 py-6 lg:py-0">
+            
+            <ul class="flex flex-col lg:flex-row  lg:items-center lg:space-x-4 xl:space-x-6  list-none m-0 pl-0 lg:pl-6">
+            
+              {% for item in module.menu_items %}
+                {% set href = item.url.url.href %}
+                {% if item.url.url.type is equalto "EMAIL_ADDRESS" %}
+                  {% set href = "mailto:" + href %}
+                {% endif %}
+              
+              <li class="group m-0">
+                <div class="flex items-center relative">
+                  <a {% if href %} href="{{href}}" {% endif %} {% if item.url.open_in_new_tab %}target="_blank"{% endif %}
+                {% if item.url.rel %}rel="{{ item.url.rel }}"{% endif %} class="text-black hover:font-bold lg:group-hover:text-v-purple lg:text-[14px] xl:text-[16px] block font-bold py-3 lg:py-6 menu-item ">
+                    {{item.title}}
+                  </a>
+                  <div class="px-1">
+                  {% if item.rows %}
+
+                    <svg class="origin-center duration-200 ease-in-out lg:group-hover:rotate-180 transition-transform hidden" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6L8 10L12 6" stroke="black" stroke-linecap="square" stroke-linejoin="round"/>
+                    </svg>    
+                  {% endif %}                  
+                  </div>
+                </div>
+
+                {% if item.rows %}
+              
+                <div class="relative lg:absolute left-0 w-full lg:p-6 bg-white z-20 lg:hidden lg:group-hover:block lg:border-t border-black/10 lg:shadow-md ">
+                  <div class="container ">
+                    <div class="flex justify-center">
+                      <div class="lg:w-10/12 lg:px-6">
+
+                        <div class="flex flex-wrap py-3 ">
+
+                        {% if !item.dropdown_panel.content %}
+                          {% for col in item.rows %}
+                          <div class="w-full lg:w-1/3 mb-6 lg:mb-1 lg:px-1 ">
+                            
+                            {{dropdown_item(col)}}
+                              
+                          </div>
+                            
+                          {% endfor %}
+
+                        {% else %}
+
+                         
+                          <div class="w-full lg:w-1/3 lg:px-6 lg:border-r">
+                            {% for col in item.rows %}
+
+                            {{dropdown_item(col)}}
+
+                            {% endfor  %}
+
+                          </div>
+
+
+                          <div class="w-full lg:w-3/5 lg:px-6">
+                            <div class="mb-3">
+
+                              {{dropdown_item(item.dropdown_panel)}}
+                            
+                            </div>
+                            {% if item.dropdown_panel.content == "blog" %}
+
+                              {% for rp in recent_posts %}
+
+                              {{ feature_card(rp.name,rp.absolute_url, rp.featured_image) }}
+                              
+                              {% endfor %}
+
+                            {% elif item.dropdown_panel.content == "newsroom" %}
+
+                            {% for rn in recent_news %}
+
+                              {{ feature_card(rn.name,rn.absolute_url,rn.featured_image.url) }}
+                              
+                              {% endfor %}
+                            {% endif %}
+                        
+                          </div>
+                  
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+        
+          </div>
+          <div class="w-full lg:w-1/4">
+            <div class="flex items-center justify-center lg:justify-end w-full px-6 lg:px-0">
+              <div class="group inline-block ">
+                <div class="button-outer p-0.5 rounded-[40px] inline-block group-hover:bg-opacity-10 transition-colors duration-200 ease-in-out group-hover:bg-v-purple">
+                  <div class="button-inner p-0.5 rounded-[40px] inline-block group-hover:bg-opacity-20 ease-in-out duration-100 group-hover:bg-v-purple">
+                    <a href="https://app.verta.ai/login" class="btn btn-small border-v-purple text-[12px] text-v-purple bg-white">Login</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="group inline-block ">
+                <div class="button-outer  p-0.5 rounded-[40px] inline-block group-hover:bg-opacity-10 transition-colors duration-200 ease-in-out group-hover:bg-v-purple">
+                  <div class="button-inner p-0.5 rounded-[40px] inline-block group-hover:bg-opacity-20 ease-in-out duration-100 group-hover:bg-v-purple">
+                    <a href="https://app.verta.ai/" class="btn btn-small border-v-purple text-[12px] text-white bg-v-purple hover:text-white ">Try Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="hidden">
+{% for item in module.menu_items %}
+	
+	{% for item2 in item.rows %}
+		
+	
+		{% set href = item2.url.url.href %}
+		{% if item2.url.url.type is equalto "EMAIL_ADDRESS" %}
+			{% set href = "mailto:" + href %}
+		{% endif %}
+		<a href="{{ href }}"
+			{% if item2.url.open_in_new_tab %}target="_blank"{% endif %}
+			{% if item2.url.rel %}rel="{{ item2.url.rel }}"{% endif %}
+			>
+			Link text
+		</a>
+	{% endfor %}
+	{% inline_text field="dropdown_panel.title" value="{{ item.dropdown_panel.title }}" %}
+	{% inline_text field="dropdown_panel.description" value="{{ item.dropdown_panel.description }}" %}
+	{% set href = item.dropdown_panel.url.url.href %}
+	{% if item.dropdown_panel.url.url.type is equalto "EMAIL_ADDRESS" %}
+		{% set href = "mailto:" + href %}
+	{% endif %}
+	<a href="{{ href }}"
+		{% if item.dropdown_panel.url.open_in_new_tab %}target="_blank"{% endif %}
+		{% if item.dropdown_panel.url.rel %}rel="{{ item.dropdown_panel.url.rel }}"{% endif %}
+		>
+		Link text
+	</a>
+	{{ item.dropdown_panel.content }}
+{% endfor %}
+</div>

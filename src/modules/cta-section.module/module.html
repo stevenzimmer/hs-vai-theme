@@ -1,0 +1,76 @@
+<!-- module html  -->
+<div class="bg-v-purple rounded-[20px] p-[40px] md:p-[100px] relative">
+  <div class="absolute right-0 top-0 bottom-0 md:w-5/12 lg:w-6/12 h-full hidden md:block">
+  {% if module.bg_image.src %}
+    {% set sizeAttrs = 'width="{{ module.bg_image.width }}" height="{{ module.bg_image.height }}"' %}
+    {% if module.bg_image.size_type == 'auto' %}
+      {% set sizeAttrs = 'width="{{ module.bg_image.width }}" height="{{ module.bg_image.height }}" style="max-width: 100%; height: auto;"' %}
+    {% elif module.bg_image.size_type == 'auto_custom_max' %}
+      {% set sizeAttrs = 'width="{{ module.bg_image.max_width }}" height="{{ module.bg_image.max_height }}" style="max-width: 100%; height: auto;"' %}
+    {% endif %}
+     {% set loadingAttr = module.bg_image.loading != 'disabled' ? 'loading="{{ module.bg_image.loading }}"' : '' %}
+    <img class="w-full h-full object-cover" src="{{ module.bg_image.src }}" alt="{{ module.bg_image.alt }}" {{ loadingAttr }} >
+  {% endif %}
+   
+  </div>
+  <div class="w-full md:w-7/12 lg:w-1/2 relative">
+    <div class="text-white">
+      <h2 class="text-white">{{ module.title }}</h2>
+
+      {% if module.subparagraph %} 
+      <p class="mb-12">
+      {{ module.subparagraph }}
+      </p>
+      {% endif %} 
+
+    
+    </div>
+  </div>
+  
+  <div class="flex flex-wrap items-center justify-start md:space-x-1">
+    {% set href = module.outline_button.link.url.href %}
+    {% if href %}
+    <div class="button-wrapper relative z-10">
+      <div class="group inline-block ">
+        <div class="button-outer p-1 rounded-[40px] inline-block group-hover:bg-opacity-10 transition-colors duration-200 ease-in-out group-hover:bg-white">
+          <div class="button-inner p-1 rounded-[40px] inline-block group-hover:bg-opacity-20 ease-in-out duration-100 group-hover:bg-white">
+        
+            {% if module.outline_button.link.url.type is equalto "EMAIL_ADDRESS" %}
+              {% set href = "mailto:" + href %}
+            {% endif %}
+            
+            <a href="{{ href }}" class="button group-hover:text-v-white !border-white !border-2" {% if module.outline_button.link.open_in_new_tab %}target="_blank"{% endif %}
+          {% if module.outline_button.link.rel %}rel="{{ module.outline_button.link.rel }}"{% endif %}>
+            {{ module.outline_button.text }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% set href = module.solid_button.link.url.href %}
+
+    {% if href %}
+    <div class="button-wrapper relative z-10">
+      <div class="group inline-block ">
+        <div class="button-outer  p-1 rounded-[40px] inline-block group-hover:bg-opacity-10 transition-colors duration-200 ease-in-out group-hover:bg-white">
+          <div class="button-inner p-1 rounded-[40px] inline-block group-hover:bg-opacity-20 ease-in-out duration-100 group-hover:bg-white">
+          
+            {% if module.solid_button.link.url.type is equalto "EMAIL_ADDRESS" %}
+              {% set href = "mailto:" + href %}
+            {% endif %}
+              <a class="button group-hover:text-v-purple !font-bold !text-v-purple !bg-white !border-white !border-2" href="{{ href }}"
+          {% if module.solid_button.link.open_in_new_tab %}target="_blank"{% endif %}
+          {% if module.solid_button.link.rel %}rel="{{ module.solid_button.link.rel }}"{% endif %}>
+          {{ module.solid_button.text }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    
+    
+  </div>
+  
+</div>

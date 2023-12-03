@@ -1,0 +1,23 @@
+<!-- module html  -->
+<div class="border-l-[3px] pl-6">
+  <div>
+    <p class="text-[22px] text-black">{{ module.quote }}</p>
+    <div class="flex items-center">
+      {% if module.headshot.src %}
+      <div class="w-[64px]">
+        
+        {% set loadingAttr = module.headshot.loading != 'disabled' ? 'loading="{{ module.headshot.loading }}"' : '' %}
+        <img class="w-[48px] h-[48px] rounded-full"  src="{{ module.headshot.src }}" alt="{{ module.headshot.alt }}" {{ loadingAttr }} >
+      </div>
+      {% endif %}
+      <div class="w-full">
+        <p class="m-0 text-[16px] font-bold text-black text-opacity-90">
+          {{ module.quote_name }}
+        </p>
+        <p class="m-0 text-[16px] text-black text-opacity-60">
+          {{ module.title }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

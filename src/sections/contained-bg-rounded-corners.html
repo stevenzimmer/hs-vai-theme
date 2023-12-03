@@ -1,0 +1,25 @@
+<!--
+ templateType: section
+ label: Contained Background with Rounded Corners
+ isAvailableForNewContent: true
+-->
+{% dnd_section 
+  class="contained-background-rounded-corners"
+%}
+  {% dnd_column
+    offset=0,
+    width=12,
+    background_color="rgba(247, 250, 252, 1)",
+    padding={
+      "default" : {
+        "bottom" : "100px",
+        "left" : "120px",
+        "right" : "120px",
+        "top" : "100px"
+      }
+    }
+  %}
+    
+ 
+  {% end_dnd_column %}
+{% end_dnd_section %}

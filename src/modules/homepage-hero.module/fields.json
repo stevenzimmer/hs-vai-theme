@@ -1,0 +1,129 @@
+[
+  {
+   "type": "text",
+   "id": "2350dbd3-3390-60da-a098-12407c5a75c9",
+   "validation_regex": "",
+   "label": "Title",
+   "name": "title",
+   "default": "LLM serving without the high costs"
+  },
+  {
+   "type": "text",
+   "id": "3d1ed842-02fb-1136-1b7d-63ecbda367a2",
+   "validation_regex": "",
+   "label": "Subparagraph",
+   "name": "subparagraph",
+   "default": "Model Management and Operations throughout the AI & ML lifecycle"
+  },
+  {
+   "type": "group",
+   "id": "036dbf35-0856-e65b-4a4b-76d42958fbbf",
+   "label": "Outline Button",
+   "children": [
+    {
+     "type": "text",
+     "id": "367feb73-894f-3c82-da93-3b72d3881fa5",
+     "validation_regex": "",
+     "label": "Text",
+     "name": "text",
+     "default": "Request demo"
+    },
+    {
+     "type": "link",
+     "id": "0195485d-f640-fadd-8bb2-4af581965f93",
+     "default": {
+      "url": {
+       "content_id": null,
+       "href": "/demo",
+       "type": "EXTERNAL"
+      },
+      "open_in_new_tab": false,
+      "no_follow": false
+     },
+     "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG",
+      "CALL_TO_ACTION",
+      "PHONE_NUMBER",
+      "WHATSAPP_NUMBER",
+      "PAYMENT"
+     ],
+     "label": "Link",
+     "name": "link"
+    }
+   ],
+   "name": "outline_button",
+   "default": {
+    "text": "Request demo",
+    "link": {
+     "url": {
+      "content_id": null,
+      "href": "/demo",
+      "type": "EXTERNAL"
+     },
+     "open_in_new_tab": false,
+     "no_follow": false
+    }
+   }
+  },
+  {
+   "type": "group",
+   "label": "Solid Button",
+   "children": [
+    {
+     "type": "text",
+     "validation_regex": "",
+     "label": "Text",
+     "name": "text",
+     "default": "&nbsp; &nbsp; &nbsp; Sign up &nbsp; &nbsp; &nbsp;",
+     "oldId": "367feb73-894f-3c82-da93-3b72d3881fa5",
+     "id": "d8e0f18f-986c-1091-24cf-f7a601c6c016"
+    },
+    {
+     "type": "link",
+     "default": {
+      "url": {
+       "content_id": null,
+       "href": "https://app.verta.ai/",
+       "type": "EXTERNAL"
+      },
+      "open_in_new_tab": false,
+      "no_follow": false
+     },
+     "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG",
+      "CALL_TO_ACTION",
+      "PHONE_NUMBER",
+      "WHATSAPP_NUMBER",
+      "PAYMENT"
+     ],
+     "label": "Link",
+     "name": "link",
+     "oldId": "0195485d-f640-fadd-8bb2-4af581965f93",
+     "id": "f133d03e-f900-75de-e0c4-86ba42ccd70b"
+    }
+   ],
+   "name": "solid_button",
+   "default": {
+    "text": "&nbsp; &nbsp; &nbsp; Sign up &nbsp; &nbsp; &nbsp;",
+    "link": {
+     "url": {
+      "content_id": null,
+      "href": "https://app.verta.ai/",
+      "type": "EXTERNAL"
+     },
+     "open_in_new_tab": false,
+     "no_follow": false
+    }
+   },
+   "oldId": "036dbf35-0856-e65b-4a4b-76d42958fbbf",
+   "id": "6a249d6e-d651-e707-aa57-0eeb84d69360"
+  }
+ ]

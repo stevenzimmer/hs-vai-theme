@@ -1,0 +1,73 @@
+{{ require_js("https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js", "head") }}
+
+<!-- module html  -->
+<div class="flex flex-wrap  flex-col-reverse md:flex-row justify-between {% if module.position == 'reverse' %} md:flex-row-reverse {% endif %} ">
+  <div class="w-full md:w-6/12 lg:w-5/12 ">
+    {% for item in module.pinned_rows %}
+      <div class="py-[80px] md:py-[120px] pinned-text-column">
+        <div class="md:hidden mb-6">
+          {% if item.row_image.src %}
+            {% set sizeAttrs = 'width="{{ item.row_image.width }}" height="{{ item.row_image.height }}"' %}
+            {% if item.row_image.size_type == 'auto' %}
+              {% set sizeAttrs = 'width="{{ item.row_image.width }}" height="{{ item.row_image.height }}" style="max-width: 100%; height: auto;"' %}
+            {% elif item.row_image.size_type == 'auto_custom_max' %}
+              {% set sizeAttrs = 'width="{{ item.row_image.max_width }}" height="{{ item.row_image.max_height }}" style="max-width: 100%; height: auto;"' %}
+            {% endif %}
+            {% set loadingAttr = item.row_image.loading != 'disabled' ? 'loading="{{ item.row_image.loading }}"' : '' %}
+            <img class="w-full" src="{{ item.row_image.src }}" alt="{{ item.row_image.alt }}"  >
+          {% endif %}
+        </div>
+        <div style="background-color: {{ item.row_color.color }}" class="text-white  rounded-full px-6 py-2 inline-block text-[14px] mb-3">{{ item.row_label }}</div>
+        <h3>
+          {{ item.heading }}
+        </h3>
+        {% if item.description %}
+        <div>
+          <p class="m-0 text-[16px] text-black leading-loose">
+          {{ item.description }}</p>
+        </div>
+        {% endif %}
+        {% if item.list_item|length %}
+
+        {% for item2 in item.list_item %}
+
+        <div class="flex items-start mb-3 ">
+          <div class="w-6">
+            <div class="w-[18px] mt-1 h-[18px] border border-[#CACBCD] rounded-full p-[3px] bg-white">
+              <div style="background-color: {{ item.row_color.color }}" class="w-full h-full rounded-full"></div>
+            </div>
+          </div>
+          <div class="w-full">
+            <p class="m-0 text-[16px] text-black text-opacity-70">{{ item2 }}</p>
+          </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+      </div>
+    {% endfor %}
+  </div>
+  <div class="w-full md:w-6/12 lg:w-5/12 mb-6 md:mb-0 hidden md:block">
+    <div class="sticky top-[25%] py-[80px]">
+      {% for item in module.pinned_rows %}
+      <div class="w-full {% if !loop.first %} hidden {% endif %} pinned-img-column transition-all duration-200  ">
+        <div class="relative">
+  
+      
+          {% if item.row_image.src %}
+            {% set sizeAttrs = 'width="{{ item.row_image.width }}" height="{{ item.row_image.height }}"' %}
+            {% if item.row_image.size_type == 'auto' %}
+              {% set sizeAttrs = 'width="{{ item.row_image.width }}" height="{{ item.row_image.height }}" style="max-width: 100%; height: auto;"' %}
+            {% elif item.row_image.size_type == 'auto_custom_max' %}
+              {% set sizeAttrs = 'width="{{ item.row_image.max_width }}" height="{{ item.row_image.max_height }}" style="max-width: 100%; height: auto;"' %}
+            {% endif %}
+            {% set loadingAttr = item.row_image.loading != 'disabled' ? 'loading="{{ item.row_image.loading }}"' : '' %}
+            <img class="w-full" src="{{ item.row_image.src }}" alt="{{ item.row_image.alt }}"  >
+          {% endif %}
+   
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</div>

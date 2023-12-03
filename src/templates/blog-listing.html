@@ -1,0 +1,212 @@
+<!--
+    templateType: blog_listing
+    isAvailableForNewContent: true
+    label: Blog Listing (Vai Theme)
+-->
+{% extends "../layouts/base.html" %}
+{% block body %}
+
+{% set feat_posts = blog_recent_topic_posts('blog_redesign', 'featured', 1) %}
+{% set recent_posts = blog_recent_posts('blog_redesign', 6) %}
+
+<header class="pt-[80px] pb-[200px] bg-[#F7FAFC]">
+  <div class="container px-6">
+  
+    <div class="flex justify-center">
+      <div class="lg:w-7/12">
+        <div class="text-center">
+          <h1 class="text-[28px] md:text-[48px] text-black font-bold">
+          {% if blog_author %} {{ blog_author.display_name }} {% else %} {{ group.name }} {% endif %}
+          </h1>
+          <p>
+          {% if blog_author %} {{ blog_author.bio }} {% else %}  {{group.description}} {% endif %} 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<main>
+  
+  <!--Start Featured Post-->
+  <div class="container">
+    
+    {% for fp in feat_posts %}
+    <div class="flex justify-center">
+      <div class="w-11/12 lg:w-8/12">
+        <a href="{{fp.absolute_url}}" class="block border rounded-[20px] p-6 bg-white -translate-y-1/2">
+          <div class="flex items-stretch flex-wrap -mx-3">
+            <div class="lg:w-6/12 px-3">
+              <div>
+                <p class="uppercase text-v-purple text-[14px] font-bold">Featured</p>
+                <h3>
+                  {{ fp.name }}
+                </h3>
+                <p class="text-black text-opacity-50 text-[16px]">
+                  {{ fp.blog_post_author.display_name }} &nbsp;•&nbsp; {{ fp.publish_date | datetimeformat('%b %e, %Y') }}
+                </p>
+                
+              </div>
+            </div>
+            {% if fp.featured_image %}
+            <div class="lg:w-6/12 px-3">
+              <img class="w-full h-full object-cover" src="{{fp.featured_image}}" alt="{{content.featured_image_alt_text}}">
+            </div>
+            {% endif %}
+          </div>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="pb-[80px]">
+    
+      <div class="flex flex-wrap justify-center md:justify-start -mx-3 mb-12">
+        {% for content in contents %}
+
+        <div class="w-11/12 md:w-1/2 lg:w-1/3 px-3 py-3 {% if loop.index > 6 %} hidden {% endif %} blog-column">
+          <a href="{{content.absolute_url}}" class="block border rounded-[20px] p-3 ">
+            {% if content.featured_image %}
+            <div class="h-[200px] mb-3">
+              <img class="w-full h-full object-cover" src="{{content.featured_image}}" alt="{{content.featured_image_alt_text}}">
+            </div>
+            {% endif %}
+            <p class="text-black text-opacity-50 text-[14px] mb-2">
+              {{ content.blog_post_author.display_name }} &nbsp;•&nbsp; {{ content.publish_date | datetimeformat('%b %e, %Y') }}
+            </p>
+            <p class="text-black font-bold text-[18px] mb-2">{{ content.name}}</p>
+            <p class="text-black text-opacity-70 text-[14px]">
+              {{ content.meta_description|striptags  }}
+            </p>
+          </a>
+        </div>
+        
+        {% endfor %}
+      </div>
+      {% if contents|length > 6 %}
+      <div class="text-center" >
+        <div class="button-wrapper relative z-10">
+          <div class="group inline-block ">
+            <div class="button-outer  p-1 rounded-[40px] inline-block group-hover:bg-opacity-10 transition-colors duration-200 ease-in-out group-hover:bg-v-purple">
+              <div class="button-inner p-1 rounded-[40px] inline-block group-hover:bg-opacity-20 ease-in-out duration-100 group-hover:bg-v-purple">
+                <a id="load-more-button" style="background-color:#ffffff;color: #553eb0;font-weight: 700;" class="button group-hover:text-v-purple load-more-button bg-white" href="#"
+                >
+                  Load all
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="bg-v-purple rounded-[20px] py-[60px] mb-12">
+      {% module_block module "rich_text_title"
+        path="@hubspot/rich_text",
+        offset=0,
+        width=12
+      %}
+        {% module_attribute "html" %}
+          <h3 style="text-align:center; color: #ffffff">Try Verta today</h3>
+        {% end_module_attribute %}
+      {% end_module_block %}
+      <div>
+    
+         {% module "Blog CTA Banner Button"
+          path="../modules/button",
+          offset=0,
+          width=12,
+          button_text="Schedule demo",
+          hover_bg_color="white",
+          link={
+              "no_follow" : false,
+              "open_in_new_tab" : false,
+              "url" : {
+                "content_id" : 57475990336,
+                "type" : "CONTENT"
+              }
+            },
+          styles={
+            "alignment" : {
+              "alignment" : {
+                "horizontal_align" : "CENTER"
+              }
+            },
+            "background" : {
+              "color" : {
+                "color" : "#FFFFFF",
+                "opacity" : 100
+              }
+            },
+            "border" : {
+              "border" : {
+                "bottom" : {
+                  "color" : "#FFFFFF",
+                  "opacity" : 100,
+                  "style" : "solid",
+                  "width" : {
+                    "units" : "px",
+                    "value" : 2
+                  }
+                },
+                "left" : {
+                  "color" : "#FFFFFF",
+                  "opacity" : 100,
+                  "style" : "solid",
+                  "width" : {
+                    "units" : "px",
+                    "value" : 2
+                  }
+                },
+                "right" : {
+                  "color" : "#FFFFFF",
+                  "opacity" : 100,
+                  "style" : "solid",
+                  "width" : {
+                    "units" : "px",
+                    "value" : 2
+                  }
+                },
+                "top" : {
+                  "color" : "#FFFFFF",
+                  "opacity" : 100,
+                  "style" : "solid",
+                  "width" : {
+                    "units" : "px",
+                    "value" : 2
+                  }
+                }
+              }
+            },
+            "text" : {
+              "font" : {
+                "color" : "#553eb0",
+                "font_set" : "DEFAULT"
+              }
+            }
+          }
+        %}
+      </div>
+     
+    </div>
+  </div>
+
+</main>
+{% endblock body %}
+{% require_js position="footer" %}
+<script>
+  const blogColumns = Array.prototype.slice.call( document.querySelectorAll('.blog-column') );
+
+  document.getElementById("load-more-button").addEventListener("click", function(e) {
+
+    e.preventDefault();
+    this.parentElement.parentElement.parentElement.classList.add("hidden");
+
+    blogColumns.forEach((column, i) => {
+      column.classList.remove("hidden");
+    });
+    
+  });
+</script>
+{% end_require_js %}

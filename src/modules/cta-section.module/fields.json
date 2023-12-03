@@ -1,0 +1,183 @@
+[
+  {
+   "allow_new_line": false,
+   "default": "Try Model Catalog today",
+   "display_width": null,
+   "id": "2350dbd3-3390-60da-a098-12407c5a75c9",
+   "label": "Title",
+   "locked": false,
+   "name": "title",
+   "required": false,
+   "show_emoji_picker": false,
+   "type": "text",
+   "validation_regex": ""
+  },
+  {
+   "allow_new_line": false,
+   "default": "Organize, document and manage all your models in one place – easily, safely and for free!",
+   "display_width": null,
+   "id": "3d1ed842-02fb-1136-1b7d-63ecbda367a2",
+   "label": "Subparagraph",
+   "locked": false,
+   "name": "subparagraph",
+   "required": false,
+   "show_emoji_picker": false,
+   "type": "text",
+   "validation_regex": ""
+  },
+  {
+   "children": [
+    {
+     "allow_new_line": false,
+     "default": "Request demo",
+     "display_width": null,
+     "id": "367feb73-894f-3c82-da93-3b72d3881fa5",
+     "label": "Text",
+     "locked": false,
+     "name": "text",
+     "required": false,
+     "show_emoji_picker": false,
+     "type": "text",
+     "validation_regex": ""
+    },
+    {
+     "default": {
+      "url": {
+       "content_id": null,
+       "href": "/demo",
+       "type": "EXTERNAL"
+      },
+      "open_in_new_tab": false,
+      "no_follow": false
+     },
+     "display_width": null,
+     "id": "0195485d-f640-fadd-8bb2-4af581965f93",
+     "label": "Link",
+     "locked": false,
+     "name": "link",
+     "required": false,
+     "show_advanced_rel_options": false,
+     "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG",
+      "CALL_TO_ACTION",
+      "PHONE_NUMBER",
+      "WHATSAPP_NUMBER",
+      "PAYMENT"
+     ],
+     "type": "link"
+    }
+   ],
+   "default": {
+    "text": "Request demo",
+    "link": {
+     "url": {
+      "content_id": null,
+      "href": "/demo",
+      "type": "EXTERNAL"
+     },
+     "open_in_new_tab": false,
+     "no_follow": false
+    }
+   },
+   "display_width": null,
+   "expanded": false,
+   "id": "036dbf35-0856-e65b-4a4b-76d42958fbbf",
+   "label": "Outline Button",
+   "locked": false,
+   "name": "outline_button",
+   "required": false,
+   "tab": "CONTENT",
+   "type": "group"
+  },
+  {
+   "children": [
+    {
+     "allow_new_line": false,
+     "default": "&nbsp; &nbsp; &nbsp; Sign up &nbsp; &nbsp; &nbsp;",
+     "display_width": null,
+     "id": "d8e0f18f-986c-1091-24cf-f7a601c6c016",
+     "label": "Text",
+     "locked": false,
+     "name": "text",
+     "required": false,
+     "show_emoji_picker": false,
+     "type": "text",
+     "validation_regex": ""
+    },
+    {
+     "default": {
+      "url": {
+       "content_id": null,
+       "href": "https://app.verta.ai/",
+       "type": "EXTERNAL"
+      },
+      "open_in_new_tab": false,
+      "no_follow": false
+     },
+     "display_width": null,
+     "id": "f133d03e-f900-75de-e0c4-86ba42ccd70b",
+     "label": "Link",
+     "locked": false,
+     "name": "link",
+     "required": false,
+     "show_advanced_rel_options": false,
+     "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG",
+      "CALL_TO_ACTION",
+      "PHONE_NUMBER",
+      "WHATSAPP_NUMBER",
+      "PAYMENT"
+     ],
+     "type": "link"
+    }
+   ],
+   "default": {
+    "text": "&nbsp; &nbsp; &nbsp; Sign up &nbsp; &nbsp; &nbsp;",
+    "link": {
+     "url": {
+      "content_id": null,
+      "href": "https://app.verta.ai/",
+      "type": "EXTERNAL"
+     },
+     "open_in_new_tab": false,
+     "no_follow": false
+    }
+   },
+   "display_width": null,
+   "expanded": false,
+   "id": "6a249d6e-d651-e707-aa57-0eeb84d69360",
+   "label": "Solid Button",
+   "locked": false,
+   "name": "solid_button",
+   "required": false,
+   "tab": "CONTENT",
+   "type": "group"
+  },
+  {
+   "type": "image",
+   "id": "27bdb005-e90e-1220-7c84-55bf51c988ab",
+   "default": {
+    "size_type": "auto",
+    "src": "https://5747173.fs1.hubspotusercontent-na1.net/hubfs/5747173/section-cta-bg.png",
+    "alt": "section-cta-bg",
+    "loading": "lazy",
+    "width": 1386,
+    "height": 880,
+    "max_width": 1386,
+    "max_height": 880
+   },
+   "resizable": true,
+   "responsive": true,
+   "show_loading": false,
+   "label": "BG Image",
+   "name": "bg_image"
+  }
+ ]

@@ -1,0 +1,100 @@
+[
+  {
+   "type": "group",
+   "id": "57221024-a453-122e-ef1d-603b94b3c5cb",
+   "label": "Sections",
+   "children": [
+    {
+     "type": "text",
+     "id": "fb2e6525-cb67-7b3b-5d65-904649bb4471",
+     "validation_regex": "",
+     "label": "Label",
+     "name": "section_label",
+     "default": "Governance"
+    },
+    {
+     "type": "color",
+     "id": "ac8ddea8-c683-4a7a-736b-206d98f469fb",
+     "default": {
+      "color": "#FF736C",
+      "opacity": 100
+     },
+     "label": "Color",
+     "name": "color"
+    },
+    {
+     "type": "text",
+     "id": "4616c33c-5aba-3522-3643-b950d22978c8",
+     "validation_regex": "",
+     "label": "Title",
+     "name": "title",
+     "default": "Governance value proposition small text or pitch"
+    },
+    {
+     "type": "text",
+     "id": "f5ebca78-d23f-da31-6b09-0cd1c4f6afd0",
+     "validation_regex": "",
+     "label": "Description",
+     "name": "description",
+     "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sodales posuere ante, eu congue urna consectetur sit amet. Nulla efficitur turpis ut nulla ultricies maximus. Vivamus vel felis id quam tristique iaculis."
+    },
+    {
+     "type": "group",
+     "id": "b102924f-520d-f749-5e8d-81cf122bfeef",
+     "label": "CTA",
+     "children": [
+      {
+       "type": "text",
+       "id": "3ee34ccf-52db-86e3-a3b8-7beb96ab5bec",
+       "validation_regex": "",
+       "label": "Text",
+       "name": "text",
+       "default": "See more"
+      },
+      {
+       "type": "link",
+       "id": "30d94d79-55b7-cb6f-26b5-b764410daa02",
+       "default": {
+        "url": {
+         "content_id": null,
+         "type": "EXTERNAL",
+         "href": ""
+        },
+        "open_in_new_tab": false,
+        "no_follow": false
+       },
+       "supported_types": [
+        "EXTERNAL",
+        "CONTENT",
+        "FILE",
+        "EMAIL_ADDRESS",
+        "BLOG",
+        "CALL_TO_ACTION",
+        "PHONE_NUMBER",
+        "WHATSAPP_NUMBER",
+        "PAYMENT"
+       ],
+       "label": "Link",
+       "name": "link"
+      }
+     ],
+     "name": "cta",
+     "default": {
+      "text": "See more",
+      "link": {
+       "url": {
+        "content_id": null,
+        "type": "EXTERNAL",
+        "href": ""
+       },
+       "open_in_new_tab": false,
+       "no_follow": false
+      }
+     }
+    }
+   ],
+   "name": "sections",
+   "default": [],
+   "occurrence": {}
+  }
+ ]

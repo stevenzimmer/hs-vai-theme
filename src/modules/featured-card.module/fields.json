@@ -1,0 +1,144 @@
+[
+  {
+   "allow_new_line": false,
+   "default": "Featured",
+   "display_width": null,
+   "id": "014d09a0-cb6b-bbce-2340-0630a5c7ffbc",
+   "label": "Label",
+   "locked": false,
+   "name": "card_label",
+   "required": false,
+   "show_emoji_picker": false,
+   "type": "text",
+   "validation_regex": ""
+  },
+  {
+   "allow_new_line": false,
+   "default": "Join Us at Insurtech Insight 2023",
+   "display_width": null,
+   "id": "af14ede5-a8d5-29b2-7394-3fe6c2f84df4",
+   "label": "Title",
+   "locked": false,
+   "name": "title",
+   "required": false,
+   "show_emoji_picker": false,
+   "type": "text",
+   "validation_regex": ""
+  },
+  {
+   "default": {
+    "size_type": "auto",
+    "src": "https://5747173.fs1.hubspotusercontent-na1.net/hubfs/5747173/undefined-2.png",
+    "alt": "undefined-2",
+    "loading": "lazy",
+    "width": 605,
+    "height": 451,
+    "max_width": 605,
+    "max_height": 451
+   },
+   "display_width": null,
+   "id": "f90d67c8-2918-6ecd-cdf9-afae3e3ccca5",
+   "label": "Thumbnail",
+   "locked": false,
+   "name": "thumbnail",
+   "required": false,
+   "resizable": true,
+   "responsive": true,
+   "show_loading": false,
+   "type": "image"
+  },
+  {
+   "allow_new_line": false,
+   "display_width": null,
+   "id": "0dc07a9b-9311-67af-0f9e-99e8e85c4ab9",
+   "label": "Excerpt",
+   "locked": false,
+   "name": "excerpt",
+   "required": false,
+   "show_emoji_picker": false,
+   "type": "text",
+   "validation_regex": "",
+   "default": "Meet us at Insurtech Insight 2023 in New York City — and gain an understanding on how Verta's Operational AI Platform can help you solve the challenges commonly faced in the insurance industry."
+  },
+  {
+   "allow_new_line": false,
+   "default": "June 7, 2023 - June 9, 2023",
+   "display_width": null,
+   "id": "05c2c181-ee8d-1753-fd04-62f57fd088fa",
+   "label": "Date",
+   "locked": false,
+   "name": "date",
+   "required": false,
+   "show_emoji_picker": false,
+   "type": "text",
+   "validation_regex": ""
+  },
+  {
+   "children": [
+    {
+     "allow_new_line": false,
+     "default": "Register now",
+     "display_width": null,
+     "id": "b296ede1-502c-9c7b-3c88-ace8c66928b3",
+     "label": "Text",
+     "locked": false,
+     "name": "text",
+     "required": false,
+     "show_emoji_picker": false,
+     "type": "text",
+     "validation_regex": ""
+    },
+    {
+     "default": {
+      "url": {
+       "content_id": null,
+       "type": "EXTERNAL",
+       "href": ""
+      },
+      "open_in_new_tab": false,
+      "no_follow": false
+     },
+     "display_width": null,
+     "id": "5e40acfe-c541-664c-ccfb-a8ddf0a555f3",
+     "label": "Link",
+     "locked": false,
+     "name": "link",
+     "required": false,
+     "show_advanced_rel_options": false,
+     "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG",
+      "CALL_TO_ACTION",
+      "PHONE_NUMBER",
+      "WHATSAPP_NUMBER",
+      "PAYMENT"
+     ],
+     "type": "link"
+    }
+   ],
+   "default": {
+    "text": "Register now",
+    "link": {
+     "url": {
+      "content_id": null,
+      "type": "EXTERNAL",
+      "href": ""
+     },
+     "open_in_new_tab": false,
+     "no_follow": false
+    }
+   },
+   "display_width": null,
+   "expanded": false,
+   "id": "b9c7953e-3105-1c50-6e0f-a2294c81455f",
+   "label": "CTA",
+   "locked": false,
+   "name": "cta",
+   "required": false,
+   "tab": "CONTENT",
+   "type": "group"
+  }
+ ]

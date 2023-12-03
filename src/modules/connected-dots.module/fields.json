@@ -1,0 +1,40 @@
+[
+  {
+   "type": "group",
+   "id": "d2c8ce8f-b768-12a5-0290-983562f8f4c9",
+   "label": "Field group",
+   "children": [
+    {
+     "type": "text",
+     "id": "6522250e-c5bc-c4bc-f413-3ac4f8c155a5",
+     "validation_regex": "",
+     "label": "Text",
+     "name": "title",
+     "default": "Enable"
+    },
+    {
+     "type": "text",
+     "id": "7e54544a-889c-959f-9033-d49322a86df3",
+     "validation_regex": "",
+     "label": "Description",
+     "name": "description",
+     "default": "Rapidly build GenAI enabled products: cloud, on-prem, or at the edge."
+    },
+    {
+     "type": "color",
+     "id": "adee57b9-24c6-47ad-74b4-9bf946b99fcc",
+     "default": {
+      "color": "#FF7A73",
+      "opacity": 100
+     },
+     "label": "Color",
+     "name": "color"
+    }
+   ],
+   "name": "field_group",
+   "default": [],
+   "occurrence": {
+    "max": 4
+   }
+  }
+ ]

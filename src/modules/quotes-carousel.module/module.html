@@ -1,0 +1,61 @@
+<!-- module html  -->
+{{ require_css("https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css") }}
+{{ require_js("https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js", "head") }}
+
+<div class="flex flex-wrap items-stretch quote-swiper relative px-6">
+  <div class="swiper-wrapper h-full">
+  {% for item in module.quotes %}
+    <div class=" mb-24 xl:mb-0 swiper-slide h-full">
+      <div class="lg:w-3/4"> 
+        <div class="flex flex-wrap -mx-3">
+        {% if item.headshot.src %}
+          <div class="w-full lg:w-4/12 px-3 mb-6 lg:mb-0">
+             {% set loadingAttr = item.headshot.loading != 'disabled' ? 'loading="{{ item.headshot.loading }}"' : '' %}
+            <img class="max-w-[200px] " src="{{ item.headshot.src }}" alt="{{ item.headshot.alt }}" {{ loadingAttr }}>
+          </div>
+        {% endif %}
+          <div class="w-full lg:w-8/12 px-3">
+            <div>
+              <p class="text-[22px] md:text-[26px] font-normal">
+              {{ item.quote }}
+              </p>
+              <p class="text-[18px] font-bold">
+              {{ item.quote_name }}, <span class="font-normal">{{ item.title }}</span>
+              </p>
+              {% if item.logo.src %}
+                {% set sizeAttrs = 'width="{{ item.logo.width }}" height="{{ item.logo.height }}"' %}
+                {% if item.logo.size_type == 'auto' %}
+                  {% set sizeAttrs = 'width="{{ item.logo.width }}" height="{{ item.logo.height }}" style="max-width: 100%; height: auto;"' %}
+                {% elif item.logo.size_type == 'auto_custom_max' %}
+                  {% set sizeAttrs = 'width="{{ item.logo.max_width }}" height="{{ item.logo.max_height }}" style="max-width: 100%; height: auto;"' %}
+                {% endif %}
+                 {% set loadingAttr = item.logo.loading != 'disabled' ? 'loading="{{ item.logo.loading }}"' : '' %}
+                <img src="{{ item.logo.src }}" alt="{{ item.logo.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+              {% endif %}
+           
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endfor %}
+    
+  </div>
+  <div class="flex space-x-3">
+
+
+    <div>
+      <svg class="btn-prev" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.75" y="0.75" width="48.5" height="48.5" rx="24.25" stroke="#553EB0" stroke-width="1.5"/>
+        <path d="M15.5898 24.7773L22.7227 17.2148C22.8516 17.043 23.0664 17 23.2383 17C23.4102 17 23.582 17.043 23.7109 17.1719C24.0117 17.4297 24.0117 17.8594 23.7539 18.1172L17.7383 24.5625L33.9375 24.5625C34.3242 24.5625 34.625 24.8633 34.625 25.207C34.625 25.5508 34.3242 25.9375 33.9375 25.9375L17.7383 25.9375L23.7539 32.3398C24.0117 32.5977 24.0117 33.0273 23.7109 33.2852C23.4102 33.543 22.9805 33.543 22.7227 33.2422L15.5898 25.6797C15.332 25.4219 15.332 25.0352 15.5898 24.7773Z" fill="#553EB0"/>
+        </svg>
+        
+    </div>
+    <div>
+      <svg class="btn-next" width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.75" y="0.75" width="48.5" height="48.5" rx="24.25" stroke="#553EB0" stroke-width="1.5"/>
+        <path d="M34.4102 25.2227L27.2773 32.7852C27.1484 32.957 26.9336 33 26.7617 33C26.5898 33 26.418 32.957 26.2891 32.8281C25.9883 32.5703 25.9883 32.1406 26.2461 31.8828L32.2617 25.4375H16.0625C15.6758 25.4375 15.375 25.1367 15.375 24.793C15.375 24.4492 15.6758 24.0625 16.0625 24.0625H32.2617L26.2461 17.6602C25.9883 17.4023 25.9883 16.9727 26.2891 16.7148C26.5898 16.457 27.0195 16.457 27.2773 16.7578L34.4102 24.3203C34.668 24.5781 34.668 24.9648 34.4102 25.2227Z" fill="#553EB0"/>
+        </svg>      
+    </div>
+  </div>
+</div>

@@ -1,0 +1,129 @@
+[
+  {
+   "choices": [
+    [
+     "standard",
+     "Standard"
+    ],
+    [
+     "reverse",
+     "Reverse"
+    ]
+   ],
+   "default": "standard",
+   "display": "radio",
+   "display_width": null,
+   "id": "18009096-9619-8337-3952-36e486ea6e96",
+   "label": "Position",
+   "locked": false,
+   "multiple": false,
+   "name": "position",
+   "preset": null,
+   "reordering_enabled": true,
+   "required": false,
+   "type": "choice"
+  },
+  {
+   "children": [
+    {
+     "allow_new_line": false,
+     "default": "Full Lifecycle Management",
+     "display_width": null,
+     "id": "0e7db456-0c58-e87c-cf01-c0c7d32e8ccb",
+     "label": "Label",
+     "locked": false,
+     "name": "row_label",
+     "required": false,
+     "show_emoji_picker": false,
+     "type": "text",
+     "validation_regex": ""
+    },
+    {
+     "default": {
+      "color": "#FF736C",
+      "opacity": 100
+     },
+     "display_width": null,
+     "id": "7ad31bdc-b768-5bdd-efc7-282f5c904c0a",
+     "label": "Row Color",
+     "locked": false,
+     "name": "row_color",
+     "required": false,
+     "show_opacity": false,
+     "type": "color"
+    },
+    {
+     "allow_new_line": false,
+     "default": "Record and manage release lifecycles from development and staging to production and archive",
+     "display_width": null,
+     "id": "f20e60b9-bf0d-447a-40f9-023213c1a9e1",
+     "label": "Heading",
+     "locked": false,
+     "name": "heading",
+     "required": false,
+     "show_emoji_picker": false,
+     "type": "text",
+     "validation_regex": ""
+    },
+    {
+     "allow_new_line": false,
+     "display_width": null,
+     "id": "d2741e16-0892-2e7e-748d-b307ca711b09",
+     "label": "Description",
+     "locked": false,
+     "name": "description",
+     "required": false,
+     "show_emoji_picker": false,
+     "type": "text",
+     "validation_regex": ""
+    },
+    {
+     "allow_new_line": false,
+     "default": "",
+     "display_width": null,
+     "id": "3444b3c0-5536-dcbc-46b2-9533d4ab9bd1",
+     "label": "List Item",
+     "locked": false,
+     "name": "list_item",
+     "occurrence": {},
+     "required": false,
+     "show_emoji_picker": false,
+     "type": "text",
+     "validation_regex": ""
+    },
+    {
+     "default": {
+      "size_type": "auto",
+      "src": "https://5747173.fs1.hubspotusercontent-na1.net/hubfs/5747173/Rectangle%201834.png",
+      "alt": "Rectangle 1834",
+      "loading": "lazy",
+      "width": 448,
+      "height": 456,
+      "max_width": 448,
+      "max_height": 456
+     },
+     "display_width": null,
+     "id": "09d48caf-fd47-5a43-0743-9bde872a442f",
+     "label": "Row Image",
+     "locked": false,
+     "name": "row_image",
+     "required": false,
+     "resizable": true,
+     "responsive": true,
+     "show_loading": false,
+     "type": "image"
+    }
+   ],
+   "default": [],
+   "display_width": null,
+   "expanded": false,
+   "id": "89b04aa4-c62c-0c64-05b4-93d313f05b99",
+   "label": "Pinned Rows",
+   "locked": false,
+   "name": "pinned_rows",
+   "occurrence": {},
+   "required": false,
+   "tab": "CONTENT",
+   "type": "group"
+  }
+ ]

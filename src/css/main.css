@@ -1,0 +1,33 @@
+@tailwind base;
+@layer base {
+
+  ul, ol {
+    @apply pl-6;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  a {
+    @apply text-v-purple;
+  }
+}
+@tailwind components;
+@layer components {}
+@tailwind utilities;
+@layer utilities {}
+
+
+.landing-page-body {
+  ul, ol {
+    li {
+      @apply mb-3;
+    }
+    
+  }
+}

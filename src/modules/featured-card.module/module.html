@@ -1,0 +1,59 @@
+<!-- module html  -->
+
+{% set href = module.cta.link.url.href %}
+  {% if module.cta.link.url.type is equalto "EMAIL_ADDRESS" %}
+    {% set href = "mailto:" + href %}
+  {% endif %}
+
+<div class="flex justify-center featured-block">
+      <div class="w-11/12 lg:w-9/12">
+        <div class="block border rounded-[20px] py-6 px-3 bg-white -translate-y-1/4 md:-translate-y-1/2">
+          <div class="flex items-center flex-wrap">
+            <div class="lg:w-7/12 px-3">
+              <div>
+                <p class="uppercase text-v-purple text-[14px] font-bold mb-2">{{ module.card_label }}</p>
+                <h3 class="mb-2">
+                {{ module.title }}
+                </h3>
+                {% if module.excerpt %}
+                <p class="text-black text-opacity-70 text-[16px]">
+                {{ module.excerpt }}
+                </p>
+                {% endif %}
+                {% if module.date %}
+                <p class="text-black text-opacity-50 text-[14px]">
+                {{ module.date }}
+                </p>
+              {% endif %}
+
+                <div class="button-wrapper relative z-10">
+                  <div class="group inline-block ">
+                    <div class="button-outer  p-1 rounded-[40px] inline-block group-hover:bg-opacity-10 transition-colors duration-200 ease-in-out group-hover:bg-v-purple">
+                      <div class="button-inner p-1 rounded-[40px] inline-block group-hover:bg-opacity-20 ease-in-out duration-100 group-hover:bg-v-purple">
+                        <a class="button group-hover:text-white" href="{{ href }}"
+                      {% if module.cta.link.open_in_new_tab %}target="_blank"{% endif %}
+                      {% if module.cta.link.rel %}rel="{{ module.cta.link.rel }}"{% endif %}
+                        >
+                        {{ module.cta.text }}
+                      
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            <div class="lg:w-5/12 px-3">
+            {% if module.thumbnail.src %}
+              
+               {% set loadingAttr = module.thumbnail.loading != 'disabled' ? 'loading="{{ module.thumbnail.loading }}"' : '' %}
+              <img class="w-full h-full object-cover"  src="{{ module.thumbnail.src }}" alt="{{ module.thumbnail.alt }}" {{ loadingAttr }} >
+            {% endif %}
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    

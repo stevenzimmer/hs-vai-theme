@@ -1,0 +1,24 @@
+.overlap-section-form {
+ 
+
+  .hs-custom-form {
+    @apply -translate-y-[60px] border border-solid border-v-grey rounded-[30px] p-6 md:p-12 lg:p-20 block;
+  }
+}
+
+.form-title {
+  @apply bg-white;
+}
+
+.landing-page-body .widget-type-form {
+  @apply shadow-lg;
+}
+
+.hs-custom-form {
+  @apply bg-white;
+
+  .hs-error-msgs {
+    @apply px-6;
+  }
+}
+

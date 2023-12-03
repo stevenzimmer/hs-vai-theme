@@ -1,0 +1,293 @@
+[
+  {
+   "default": {
+    "url": {
+     "href": "",
+     "type": "EXTERNAL"
+    },
+    "no_follow": false,
+    "open_in_new_tab": false
+   },
+   "display_width": null,
+   "id": "link",
+   "label": "Button link",
+   "locked": false,
+   "name": "link",
+   "required": false,
+   "show_advanced_rel_options": false,
+   "supported_types": [
+    "EXTERNAL",
+    "CONTENT",
+    "FILE",
+    "EMAIL_ADDRESS",
+    "CALL_TO_ACTION"
+   ],
+   "type": "link"
+  },
+  {
+   "allow_new_line": false,
+   "default": "Add a button link here",
+   "display_width": null,
+   "id": "button_text",
+   "label": "Button text",
+   "locked": false,
+   "name": "button_text",
+   "required": true,
+   "show_emoji_picker": false,
+   "type": "text",
+   "validation_regex": ""
+  },
+  {
+   "choices": [
+    [
+     "purple",
+     "Purple"
+    ],
+    [
+     "white",
+     "White"
+    ]
+   ],
+   "default": "purple",
+   "display": "radio",
+   "display_width": null,
+   "id": "20db7f94-d973-7ae5-2ad5-d0439e1f6d71",
+   "label": "Hover background Color",
+   "locked": false,
+   "multiple": false,
+   "name": "hover_bg_color",
+   "preset": null,
+   "reordering_enabled": true,
+   "required": false,
+   "type": "choice"
+  },
+  {
+   "type": "choice",
+   "id": "c38fb3cf-adf4-fe3f-0d5f-4f0a0b43d2eb",
+   "display": "radio",
+   "choices": [
+    [
+     "purple",
+     "Purple"
+    ],
+    [
+     "white",
+     "White"
+    ]
+   ],
+   "label": "Hover Text Color",
+   "name": "hover_text_color",
+   "default": "purple"
+  },
+  {
+    "children": [
+     {
+      "children": [
+       {
+        "default": {
+         "font": null,
+         "font_set": "DEFAULT",
+         "styles": null,
+         "size": null,
+         "size_unit": null,
+         "color": null,
+         "variant": null,
+         "fallback": null,
+         "style": null
+        },
+        "display_width": null,
+        "id": "styles.text.font",
+        "label": "Font",
+        "load_external_fonts": true,
+        "locked": false,
+        "name": "font",
+        "required": false,
+        "type": "font"
+       }
+      ],
+      "default": {
+       "font": {
+        "font": null,
+        "font_set": "DEFAULT",
+        "styles": null,
+        "size": null,
+        "size_unit": null,
+        "color": null,
+        "variant": null,
+        "fallback": null,
+        "style": null
+       }
+      },
+      "display_width": null,
+      "expanded": false,
+      "id": "styles.text",
+      "label": "Text",
+      "locked": false,
+      "name": "text",
+      "required": false,
+      "tab": "STYLE",
+      "type": "group"
+     },
+     {
+      "children": [
+       {
+        "default": {
+         "color": null,
+         "opacity": null,
+         "rgba": null,
+         "rgb": null,
+         "hex": null
+        },
+        "display_width": null,
+        "id": "styles.background.color",
+        "label": "Color",
+        "locked": false,
+        "name": "color",
+        "required": false,
+        "type": "color"
+       }
+      ],
+      "default": {
+       "color": {
+        "color": null,
+        "opacity": null,
+        "rgba": null,
+        "rgb": null,
+        "hex": null
+       }
+      },
+      "display_width": null,
+      "expanded": false,
+      "id": "styles.background",
+      "label": "Background",
+      "locked": false,
+      "name": "background",
+      "required": false,
+      "tab": "STYLE",
+      "type": "group"
+     },
+     {
+      "children": [
+       {
+        "allow_custom_border_sides": false,
+        "default": {},
+        "display_width": null,
+        "id": "styles.border.border",
+        "label": "Border",
+        "locked": false,
+        "name": "border",
+        "required": false,
+        "type": "border"
+       }
+      ],
+      "default": {
+       "border": {}
+      },
+      "display_width": null,
+      "expanded": false,
+      "id": "styles.border",
+      "label": "Border",
+      "locked": false,
+      "name": "border",
+      "required": false,
+      "tab": "STYLE",
+      "type": "group"
+     },
+     {
+      "children": [
+       {
+        "default": {},
+        "display_width": null,
+        "id": "styles.spacing.spacing",
+        "label": "Spacing",
+        "locked": false,
+        "name": "spacing",
+        "required": false,
+        "type": "spacing"
+       }
+      ],
+      "default": {
+       "spacing": {}
+      },
+      "display_width": null,
+      "expanded": false,
+      "id": "styles.spacing",
+      "label": "Spacing",
+      "locked": false,
+      "name": "spacing",
+      "required": false,
+      "tab": "STYLE",
+      "type": "group"
+     },
+     {
+      "children": [
+       {
+        "alignment_direction": "HORIZONTAL",
+        "default": {},
+        "display_width": null,
+        "id": "styles.alignment.alignment",
+        "label": "Alignment",
+        "locked": false,
+        "name": "alignment",
+        "required": false,
+        "type": "alignment"
+       }
+      ],
+      "default": {
+       "alignment": {}
+      },
+      "display_width": null,
+      "expanded": false,
+      "id": "styles.alignment",
+      "label": "Alignment",
+      "locked": false,
+      "name": "alignment",
+      "required": false,
+      "tab": "STYLE",
+      "type": "group"
+     }
+    ],
+    "default": {
+     "text": {
+      "font": {
+       "font": null,
+       "font_set": "DEFAULT",
+       "styles": null,
+       "size": null,
+       "size_unit": null,
+       "color": null,
+       "variant": null,
+       "fallback": null,
+       "style": null
+      }
+     },
+     "background": {
+      "color": {
+       "color": null,
+       "opacity": null,
+       "rgba": null,
+       "rgb": null,
+       "hex": null
+      }
+     },
+     "border": {
+      "border": {}
+     },
+     "spacing": {
+      "spacing": {}
+     },
+     "alignment": {
+      "alignment": {}
+     }
+    },
+    "display_width": null,
+    "expanded": false,
+    "id": "styles",
+    "label": "Styles",
+    "locked": false,
+    "name": "styles",
+    "required": false,
+    "tab": "STYLE",
+    "type": "group"
+   }
+ ]

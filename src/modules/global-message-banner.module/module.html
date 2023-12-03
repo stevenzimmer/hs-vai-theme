@@ -1,0 +1,22 @@
+<!-- module html  -->
+{% set href = module.link.url.url.href %}
+{% if module.link.url.url.type is equalto "EMAIL_ADDRESS" %}
+  {% set href = "mailto:" + href %}
+{% endif %}
+<div class="bg-v-purple py-3 relative" id="promo-banner">
+<div class="absolute md:w-20 top-0 bottom-0 right-6 h-full flex items-center cursor-pointer" id="promo-banner-close">
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.8031 16.8031C16.5406 17.0656 16.0594 17.0656 15.7969 16.8031L10.0219 10.9844L4.20312 16.8031C3.94063 17.0656 3.45937 17.0656 3.19688 16.8031C2.93438 16.5406 2.93438 16.0594 3.19688 15.7969L9.01562 9.97813L3.19688 4.20312C2.93438 3.94063 2.93438 3.45937 3.19688 3.19688C3.45937 2.93438 3.94063 2.93438 4.20312 3.19688L10.0219 9.01562L15.7969 3.19688C16.0594 2.93438 16.5406 2.93438 16.8031 3.19688C17.0656 3.45937 17.0656 3.94063 16.8031 4.20312L10.9844 9.97813L16.8031 15.7969C17.0656 16.0594 17.0656 16.5406 16.8031 16.8031Z" fill="white"/>
+    </svg>
+    
+</div>
+<div class="flex justify-center ">
+  <div class="w-9/12">
+    <div class="text-center text-white">
+      <p class="m-0 text-[16px]">
+      <span class="text-[#FED257]">{{ module.label_text }}</span> {{ module.message }} <a class="text-white underline hover:text-white group" href="{{ href }}" {% if module.link.url.open_in_new_tab %}target="_blank"{% endif %}
+    {% if module.link.url.rel %}rel="{{ module.link.url.rel }}"{% endif %}>{{ module.link.text }} <span class="group-hover:translate-x-0.5 transition-transform duration-200 inline-block">→</span></a></p>
+    </div>
+  </div>
+</div>
+</div>

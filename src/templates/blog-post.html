@@ -1,0 +1,272 @@
+<!--
+  templateType: blog_post
+  isAvailableForNewContent: true
+  label: Blog Post (Vai Theme)
+-->
+{% extends "../layouts/base.html" %}
+{% block body %}
+
+{% set recent_posts = blog_recent_posts('{{group.id}}', 3) %}
+{% set recent_posts_filtered = recent_posts|rejectattr('slug', 'equalto', content.slug) %}
+
+<header class="pt-[40px] pb-[80px] bg-[#F7FAFC]">
+  <div class="container px-6">
+    <div class="mb-6">
+     
+      <a class="text-v-purple font-bold text-[14px] group" href="{{group.absolute_url}}">
+      <span class="group-hover:-translate-x-0.5 transition-transform duration-200 inline-block origin-center rotate-180 -translate-y-0.5">→</span> Back to blog
+      </a>
+    </div>
+    <div class="flex justify-center">
+      <div class="lg:w-7/12">
+        <div class="text-center">
+          <h1 class="text-[28px] md:text-[48px] text-black font-bold">
+            {{ content.name }}
+          </h1>
+        </div>
+        <div class="flex justify-center post-meta">
+          
+          <div class="flex items-center">
+            {% if content.blog_post_author.avatar %}
+            <div class="w-16">
+              <img class="w-12 h-12 rounded-full" src="{{ content.blog_post_author.avatar }}" alt="{{ content.blog_post_author.display_name }} Headshot">
+              
+            </div>
+            {% endif %}
+            <div class="w-full px-3">
+
+            
+            <p class="m-0 text-black text-[16px] text-opacity-90 font-bold">
+              {{ content.blog_post_author.display_name }}
+            </p>
+          
+            <p class="m-0 text-black text-opacity-60 text-[16px]">
+              {{ content.publish_date | datetimeformat('%b %e, %Y') }}
+            </p>
+          </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<main class="py-[40px]">
+  <div class="container">
+  
+      <!--Start Article-->
+      <div class="flex flex-wrap items-stretch flex-col-reverse md:flex-row pb-[40px]">
+        <div class="lg:w-2/12 px-6 ">
+          <div class="flex space-x-6 md:space-x-0 md:space-y-6 md:flex-col items-center social-share sticky top-[50px] ">
+        
+            <a class="block" href="https://www.linkedin.com/shareArticle?mini=true&url={{ content.absolute_url }}"><svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.5 0.5C20.2969 0.5 21 1.20312 21 2.04688V20C21 20.8438 20.2969 21.5 19.5 21.5H1.45312C0.65625 21.5 0 20.8438 0 20V2.04688C0 1.20312 0.65625 0.5 1.45312 0.5H19.5ZM6.32812 18.5V8.51562H3.23438V18.5H6.32812ZM4.78125 7.10938C5.76562 7.10938 6.5625 6.3125 6.5625 5.32812C6.5625 4.34375 5.76562 3.5 4.78125 3.5C3.75 3.5 2.95312 4.34375 2.95312 5.32812C2.95312 6.3125 3.75 7.10938 4.78125 7.10938ZM18 18.5V13.0156C18 10.3438 17.3906 8.23438 14.25 8.23438C12.75 8.23438 11.7188 9.07812 11.2969 9.875H11.25V8.51562H8.29688V18.5H11.3906V13.5781C11.3906 12.2656 11.625 11 13.2656 11C14.8594 11 14.8594 12.5 14.8594 13.625V18.5H18Z" fill="black" fill-opacity="0.38"/>
+              </svg>
+              </a>
+            <a class="block" href="https://www.facebook.com/sharer/sharer.php?u={{ content.absolute_url }}">
+              <svg width="13" height="24" viewBox="0 0 13 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.0781 13.5H8.5625V24H3.875V13.5H0.03125V9.1875H3.875V5.85938C3.875 2.10938 6.125 0 9.54688 0C11.1875 0 12.9219 0.328125 12.9219 0.328125V4.03125H11C9.125 4.03125 8.5625 5.15625 8.5625 6.375V9.1875H12.7344L12.0781 13.5Z" fill="black" fill-opacity="0.38"/>
+                </svg>
+                </a>
+            <a class="block" href="https://twitter.com/intent/tweet?text=Check%20out%20this%20post%20from%20Verta!%20{{ content.absolute_url }}">
+              <svg width="24" height="20" viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21.5156 5.125C21.5156 5.35938 21.5156 5.54688 21.5156 5.78125C21.5156 12.2969 16.5938 19.75 7.54688 19.75C4.73438 19.75 2.15625 18.9531 0 17.5469C0.375 17.5938 0.75 17.6406 1.17188 17.6406C3.46875 17.6406 5.57812 16.8438 7.26562 15.5312C5.10938 15.4844 3.28125 14.0781 2.67188 12.1094C3 12.1562 3.28125 12.2031 3.60938 12.2031C4.03125 12.2031 4.5 12.1094 4.875 12.0156C2.625 11.5469 0.9375 9.57812 0.9375 7.1875V7.14062C1.59375 7.51562 2.39062 7.70312 3.1875 7.75C1.82812 6.85938 0.984375 5.35938 0.984375 3.67188C0.984375 2.73438 1.21875 1.89062 1.64062 1.1875C4.07812 4.14062 7.73438 6.10938 11.8125 6.34375C11.7188 5.96875 11.6719 5.59375 11.6719 5.21875C11.6719 2.5 13.875 0.296875 16.5938 0.296875C18 0.296875 19.2656 0.859375 20.2031 1.84375C21.2812 1.60938 22.3594 1.1875 23.2969 0.625C22.9219 1.79688 22.1719 2.73438 21.1406 3.34375C22.125 3.25 23.1094 2.96875 23.9531 2.59375C23.2969 3.57812 22.4531 4.42188 21.5156 5.125Z" fill="black" fill-opacity="0.38"/>
+                </svg>
+                </a>
+          </div>
+        </div>
+        <div class="lg:w-8/12 px-6">
+          <article class="f-dir-col f-align-ceneter">
+         
+          
+            <div class="blog-wrapper">
+              {{ content.post_body }}
+            </div>
+
+            <div class="bg-v-offwhite rounded-[20px] p-6 my-12">
+              <div class="flex flex-wrap items-center justify-between">
+                <div class="w-full lg:w-9/12 mb-3 lg:mb-0">
+                  <div>
+                    <h3 class="text-v-purple text-[20px] mb-2">Subscribe To Our Blog</h3>
+                    <p class="m-0 text-black text-[16px]">
+                      Get the latest from Verta delivered directly to you email.
+                    </p>
+                  </div>
+                </div>
+                <div class="w-full lg:w-3/12">
+                  <div class="flex justify-end">
+                    <div class="group inline-block ">
+                      <div class="button-outer  p-1 rounded-[40px] inline-block group-hover:bg-opacity-10 transition-colors duration-200 ease-in-out group-hover:bg-v-purple">
+                        <div class="button-inner p-1 rounded-[40px] inline-block group-hover:bg-opacity-20 ease-in-out duration-100 group-hover:bg-v-purple">
+                          <a href="https://info.verta.ai/sign-up-for-the-verta-newsletter" class="btn btn-small border-v-purple text-[12px] text-white bg-v-purple hover:text-white ">Subscribe</a>
+                        </div>
+                      </div>
+                    </div>
+                                       
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="lg:w-2/12 px-6"></div>
+        
+      </div>
+
+      <div class="pb-[80px]">
+        <div class="flex justify-center">
+          <div class="w-11/12">
+            <div class="flex flex-wrap justify-center md:justify-start">
+              {% for recent in recent_posts %}
+      
+              <div class="w-11/12 md:w-1/2 lg:w-1/3 px-3 py-3 {% if loop.index > 6 %} hidden {% endif %} blog-column">
+                <a href="{{recent.absolute_url}}" class="block border rounded-[20px] p-3 ">
+                  {% if recent.featured_image %}
+                  <div class="h-[200px] mb-3">
+                    <img class="w-full h-full object-cover" src="{{recent.featured_image}}" alt="{{recent.featured_image_alt_text}}">
+                  </div>
+                  {% endif %}
+                  <p class="text-black text-opacity-50 text-[14px] mb-2">
+                    {{ recent.blog_post_author.display_name }} &nbsp;•&nbsp; {{ recent.publish_date | datetimeformat('%b %e, %Y') }}
+                  </p>
+                  <p class="text-black font-bold text-[18px] mb-2">{{ recent.name}}</p>
+                  <p class="text-black text-opacity-70 text-[14px]">
+                    {{ recent.meta_description|striptags  }}
+                  </p>
+                </a>
+              </div>
+              
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--End Article-->
+      
+
+      <div class="px-6">
+    <div class="bg-v-purple rounded-[20px] py-[60px]">
+ 
+    {% module_block module "rich_text_title"
+    path="@hubspot/rich_text",
+    offset=0,
+    width=12
+  %}
+    {% module_attribute "html" %}
+      <h3 style="text-align:center; color: #ffffff">Try Verta today</h3>
+    {% end_module_attribute %}
+  {% end_module_block %}
+        
+   
+      <div>
+    
+         {% module "Blog CTA Banner Button"
+          path="../modules/button",
+          offset=0,
+          width=12,
+          button_text="Schedule demo",
+          hover_bg_color="white",
+          link={
+          "no_follow" : false,
+          "open_in_new_tab" : false,
+          "url" : {
+            "content_id" : 57475990336,
+            "type" : "CONTENT"
+          }
+        },
+          styles={
+            "alignment" : {
+              "alignment" : {
+                "horizontal_align" : "CENTER"
+              }
+            },
+            "background" : {
+              "color" : {
+                "color" : "#FFFFFF",
+                "opacity" : 100
+              }
+            },
+            "border" : {
+              "border" : {
+                "bottom" : {
+                  "color" : "#FFFFFF",
+                  "opacity" : 100,
+                  "style" : "solid",
+                  "width" : {
+                    "units" : "px",
+                    "value" : 2
+                  }
+                },
+                "left" : {
+                  "color" : "#FFFFFF",
+                  "opacity" : 100,
+                  "style" : "solid",
+                  "width" : {
+                    "units" : "px",
+                    "value" : 2
+                  }
+                },
+                "right" : {
+                  "color" : "#FFFFFF",
+                  "opacity" : 100,
+                  "style" : "solid",
+                  "width" : {
+                    "units" : "px",
+                    "value" : 2
+                  }
+                },
+                "top" : {
+                  "color" : "#FFFFFF",
+                  "opacity" : 100,
+                  "style" : "solid",
+                  "width" : {
+                    "units" : "px",
+                    "value" : 2
+                  }
+                }
+              }
+            },
+            "text" : {
+              "font" : {
+                "color" : "#553eb0",
+                "font_set" : "DEFAULT"
+              }
+            }
+          }
+        %}
+      </div>
+     
+    </div>
+  </div>
+  </div>
+</main>
+{% endblock body %}
+
+
+{% require_head %}
+
+  <script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Article",
+  "name": "{{ content.name|striptags }}",
+  "description" : "{{ content.meta_description }}",
+  "datePublished" : "{{ content.publish_date | format_date('MM-dd-yy') }}",
+  "url" : "{{ content.absolute_url }}",
+  "image" : "{{content.featured_image}}",
+  "author": { 
+    "@type": "Person", 
+    "name": "{{ content.blog_post_author.display_name }}" 
+  },
+  "publisher" : {
+    "@type" : "Organization",
+    "name" : "Verta.ai"
+  },
+  "mainEntityOfPage": { 
+    "@type": "WebPage", 
+    "@id": "{{ content.absolute_url }}" 
+  }
+}
+</script>
+
+{% end_require_head %}

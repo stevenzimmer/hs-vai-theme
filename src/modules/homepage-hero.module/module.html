@@ -1,0 +1,92 @@
+<!-- module html  -->
+
+
+{{ require_js("https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js", "head") }}
+
+{{ require_js("https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js", "head") }}
+
+
+<div class="absolute inset-0 w-full h-full">
+  <lottie-player src="https://5747173.fs1.hubspotusercontent-na1.net/hubfs/5747173/Hero%20header%20animation.json" id="homepage-hero-lottie"></lottie-player>
+</div>
+
+<div class="container relative">
+  
+  <div class="">
+    <div class="text-center">
+      <div class="relative py-6">
+        
+        <div class="absolute w-full h-full inset-0">
+          <svg class="w-full h-full object-cover" width="1292" height="212" viewBox="0 0 1292 212" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="646" cy="106" rx="646" ry="106" fill="url(#paint0_radial_614_719)"/>
+            <defs>
+            <radialGradient id="paint0_radial_614_719" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(646 106) rotate(90) scale(106 646)">
+            <stop offset="0.328125" stop-color="white"/>
+            <stop offset="1" stop-color="white" stop-opacity="0"/>
+            </radialGradient>
+            </defs>
+            </svg>
+            
+        </div>
+        <div class="w-full lg:w-8/12  mx-auto">
+          <h1 class="leading-tight relative m-0">{{ module.title }}</h1>
+        </div>
+     
+
+      </div>
+      
+      <div class="w-full lg:w-4/12 mx-auto">
+        <p class="text-[20px] font-normal leading-normal text-black text-opacity-60">
+        {{ module.subparagraph }}
+        </p>
+        
+      </div>
+      <div class="flex flex-wrap items-center justify-center md:space-x-3">
+      {% if module.outline_button.text %}
+        
+        <div class="button-wrapper relative z-10">
+          <div class="group inline-block ">
+            <div class="button-outer  p-1 rounded-[40px] inline-block group-hover:bg-opacity-10 transition-colors duration-200 ease-in-out group-hover:bg-v-purple">
+              <div class="button-inner p-1 rounded-[40px] inline-block group-hover:bg-opacity-20 ease-in-out duration-100 group-hover:bg-v-purple">
+              {% set href = module.outline_button.link.url.href %}
+                {% if module.outline_button.link.url.type is equalto "EMAIL_ADDRESS" %}
+                  {% set href = "mailto:" + href %}
+                {% endif %}
+              
+                <a href="{{ href }}"
+              {% if module.outline_button.link.open_in_new_tab %}target="_blank"{% endif %}
+              {% if module.outline_button.link.rel %}rel="{{ module.outline_button.link.rel }}"{% endif %} class="button group-hover:text-v-purple !font-bold !text-v-purple !bg-white" href="/demo">
+                {{ module.outline_button.text }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if module.solid_button.text %}
+        <div class="button-wrapper relative z-10">
+          <div class="group inline-block ">
+            <div class="button-outer p-1 rounded-[40px] inline-block group-hover:bg-opacity-10 transition-colors duration-200 ease-in-out group-hover:bg-v-purple">
+              <div class="button-inner p-1 rounded-[40px] inline-block group-hover:bg-opacity-20 ease-in-out duration-100 group-hover:bg-v-purple">
+
+              {% set href = module.solid_button.link.url.href %}
+                {% if module.solid_button.link.url.type is equalto "EMAIL_ADDRESS" %}
+                  {% set href = "mailto:" + href %}
+                {% endif %}
+                <a href="{{ href }}"
+              {% if module.solid_button.link.open_in_new_tab %}target="_blank"{% endif %}
+              {% if module.solid_button.link.rel %}rel="{{ module.solid_button.link.rel }}"{% endif %} class="button group-hover:text-v-white" href="https://app.verta.ai/">
+                {{ module.solid_button.text }}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        
+      </div>
+  
+    </div>
+  </div>
+</div>

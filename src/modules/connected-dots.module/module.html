@@ -1,0 +1,18 @@
+<!-- module html  -->
+
+<div class="relative">
+  <div class="absolute w-4/5 top-[20px] left-0 right-0 h-[1px] bg-[#CACBCD] hidden lg:block"></div>
+  <div class="flex flex-wrap justify-between relative -mx-6">
+  {% for item in module.field_group %}
+    <div class="w-full sm:w-1/2 lg:w-1/4 mb-6 lg:mb-0 px-6">
+      <div class="">
+        <div class="w-[40px] h-[40px] border border-[#CACBCD] rounded-full p-2 bg-white">
+          <div style="background-color: {{ item.color.color }}" class="w-full h-full rounded-full"></div>
+        </div>
+        <h3 class="mt-6 mb-3 font-bold">{{ item.title }}</h3>
+        <p class="text-black text-opacity-70 text-[18px]">{{ item.description }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>

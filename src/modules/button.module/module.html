@@ -1,0 +1,81 @@
+{# Module styles #}
+
+{% require_css %}
+  <style>
+    {% scope_css %}
+
+      {# Button wrapper #}
+
+      {% if module.styles.alignment.alignment %}
+        .button-wrapper {
+          text-align: {{ module.styles.alignment.alignment.horizontal_align }};
+        }
+      {% endif %}
+
+      {# Button #}
+
+      .button {
+        {% if module.styles.background.color.color %}
+          background-color: rgba({{ module.styles.background.color.color|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+        {% endif %}
+        {{ module.styles.border.border.css }}
+        {% if module.styles.corner.radius >= 0 %}
+          border-radius: {{ module.styles.corner.radius ~ "px" }};
+        {% endif %}
+        {{ module.styles.text.font.css }}
+        {{ module.styles.spacing.spacing.css }}
+        font-weight: 700;
+      }
+
+      .button:active {
+        {% if module.styles.background.color.color %}
+          background-color: rgba({{ color_variant(module.styles.background.color.color, 80)|convert_rgb }}, {{ module.styles.background.color.opacity / 100 }});
+        {% endif %}
+      }
+
+    {% end_scope_css %}
+  </style>
+{% end_require_css %}
+
+{# Sets attributes used for the link field #}
+
+{% set href = module.link.url.href %}
+{% if module.link.url.type == "EMAIL_ADDRESS" %}
+  {% set href = "mailto:" + href %}
+{% endif %}
+{% set rel = [] %}
+{% if module.link.no_follow %}
+  {% do rel.append("nofollow") %}
+{% endif %}
+{% if module.link.open_in_new_tab %}
+  {% do rel.append("noopener") %}
+{% endif %}
+
+{# Button #}
+{% set hover_bg_color = "group-hover:bg-v-purple" %}
+{% set hover_text_color = "group-hover:text-v-purple" %}
+    
+{% if module.hover_bg_color == "white" %}
+  {% set hover_bg_color = "group-hover:bg-white" %}
+{% endif %}
+
+{% if module.hover_text_color == "white" %}
+  {% set hover_text_color = "group-hover:text-white" %}
+{% endif %}
+
+
+<div class="button-wrapper relative z-10">
+  <div class="group inline-block ">
+    <div class="button-outer  p-1 rounded-[40px] inline-block group-hover:bg-opacity-10 transition-colors duration-200 ease-in-out {{hover_bg_color}}">
+      <div class="button-inner p-1 rounded-[40px] inline-block group-hover:bg-opacity-20 ease-in-out duration-100 {{hover_bg_color}}">
+        <a class="button {{hover_text_color }}" href="{{ href }}"
+        {% if module.link.open_in_new_tab %}target="_blank"{% endif %}
+        {% if rel %}rel="{{ rel|join(" ") }}"{% endif %}
+        >
+          {{ module.button_text }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

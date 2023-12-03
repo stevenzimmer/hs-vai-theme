@@ -1,0 +1,66 @@
+[
+  {
+   "type": "text",
+   "id": "7f6792a2-c260-9e0b-190c-ea1c85d4cc28",
+   "validation_regex": "",
+   "label": "Label",
+   "name": "label_text",
+   "default": "New!"
+  },
+  {
+   "type": "text",
+   "id": "a77f8450-d4bc-53b4-d45f-47e29977cd8c",
+   "validation_regex": "",
+   "label": "Message",
+   "name": "message",
+   "default": "AI Assisted Documentation: document your models in minutes."
+  },
+  {
+   "type": "group",
+   "id": "25f7cf63-fde6-8716-ad77-5d5532528f55",
+   "label": "Link",
+   "children": [
+    {
+     "type": "link",
+     "id": "0926554f-f0ab-6dae-476a-b5df7345284b",
+     "default": {
+      "url": {
+       "content_id": 124401852579,
+       "href": null,
+       "type": "CONTENT"
+      },
+      "open_in_new_tab": false,
+      "no_follow": false
+     },
+     "supported_types": [
+      "CONTENT",
+      "EXTERNAL",
+      "BLOG"
+     ],
+     "label": "Link URL",
+     "name": "url"
+    },
+    {
+     "type": "text",
+     "id": "0701a8d0-5e46-8a55-479f-8cb12505bf2a",
+     "validation_regex": "",
+     "label": "Link Text",
+     "name": "text",
+     "default": "Try now"
+    }
+   ],
+   "name": "link",
+   "default": {
+    "url": {
+     "url": {
+      "content_id": 124401852579,
+      "href": null,
+      "type": "CONTENT"
+     },
+     "open_in_new_tab": false,
+     "no_follow": false
+    },
+    "text": "Try now"
+   }
+  }
+ ]
